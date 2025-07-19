@@ -22,7 +22,7 @@ export const Navbar = () => {
         {/* Logo  */}
         <Link href="/">
           <span className="flex items-center space-x-3">
-            <span className="cursive-font text-4xl font-bold text-transparent bg-gradient-to-r from-[#d97706] to-[#92400e] bg-clip-text hover:scale-105 transition-transform duration-300">
+            <span className="cursive-font text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transparent bg-gradient-to-r from-[#d97706] to-[#92400e] bg-clip-text hover:scale-105 transition-transform duration-300">
               Shrinivas Kulkarni
             </span>
           </span>
@@ -67,15 +67,15 @@ export const Navbar = () => {
                 </Disclosure.Button>
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                  <div>
+                  <div className="w-full space-y-2">
                     {navigation.map((item, index) => (
-                      <Link key={index} href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#d97706] focus:text-white focus:bg-[#d97706] dark:focus:bg-[#d97706] focus:outline-none transition-colors duration-300">
+                      <Link key={index} href={item.href} className="block w-full px-4 py-3 text-base text-gray-500 rounded-md dark:text-gray-300 hover:text-[#d97706] hover:bg-gray-50 dark:hover:bg-gray-800 focus:text-white focus:bg-[#d97706] dark:focus:bg-[#d97706] focus:outline-none transition-colors duration-300">
                           {item.name}
                       </Link>
                     ))}
                     <button 
                       onClick={() => openPopup("Let's Connect")}
-                      className="w-full px-6 py-2 mt-3 text-center text-white bg-gradient-to-r from-[#d97706] to-[#92400e] rounded-md lg:ml-5 hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300">         
+                      className="w-full px-6 py-3 mt-4 text-base font-medium text-center text-white bg-gradient-to-r from-[#d97706] to-[#92400e] rounded-md hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300">         
                         Let's Connect
                     </button>
                   </div>

@@ -12,8 +12,37 @@ export const Hero = () => {
     <>
       {/* Hero Section with White Background */}
       <div className="relative w-full bg-white">
-        {/* Banner Image Overlay - Natural Height */}
-        <div className="relative w-full">
+        {/* Mobile Layout */}
+        <div className="block lg:hidden">
+          {/* Mobile Profile Photo - Centered at Top */}
+          <div className="flex justify-center pt-8 pb-4">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+              <Image
+                src={profilePhoto}
+                alt="Shrinivas Kulkarni"
+                width={160}
+                height={160}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+          </div>
+          
+          {/* Mobile Banner Image - Reduced Height */}
+          <div className="relative w-full">
+            <Image
+              src={heroBanner}
+              alt="Lead with Purpose - Build with Intelligence"
+              width={1920}
+              height={400}
+              className="object-cover w-full h-48 sm:h-64"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:block relative w-full">
           <Image
             src={heroBanner}
             alt="Lead with Purpose - Build with Intelligence"
@@ -23,7 +52,7 @@ export const Hero = () => {
             priority
           />
           
-          {/* Professional Photo Overlay on Banner - Left Side */}
+          {/* Desktop Professional Photo Overlay - Left Side */}
           <div className="absolute left-8 top-1/2 transform -translate-y-1/2 z-10">
             <div className="relative">
               <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-2xl">
@@ -38,7 +67,6 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Content Section - Below Banner */}
@@ -46,39 +74,39 @@ export const Hero = () => {
           <Container>
             {/* Main Content Area */}
             <div className="max-w-6xl mx-auto">
-              {/* Two Column Layout */}
+              {/* Responsive Layout */}
               <div className="flex flex-col lg:flex-row lg:items-stretch lg:justify-between lg:gap-8">
-                {/* Left Column - Content with Border (70%) */}
-                <div className="w-full lg:w-7/10 mb-8 lg:mb-0">
-                  <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
-                    <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight mb-6">
+                {/* Content Section */}
+                <div className="w-full lg:w-7/10 mb-6 lg:mb-0">
+                  <div className="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-800 lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight mb-4 lg:mb-6">
                       Strategic AI Leadership
                     </h1>
-                    <p className="text-xl leading-relaxed text-gray-600 lg:text-2xl xl:text-2xl mb-6">
+                    <p className="text-lg sm:text-xl leading-relaxed text-gray-600 lg:text-2xl xl:text-2xl mb-4 lg:mb-6">
                       Transforming organizations through purposeful AI strategy and intelligent system architecture.
                     </p>
-                    <p className="text-lg leading-relaxed text-gray-700 lg:text-xl xl:text-xl">
+                    <p className="text-base sm:text-lg leading-relaxed text-gray-700 lg:text-xl xl:text-xl">
                       I'm Shrinivas Kulkarni, bridging visionary leadership with technical excellence to deliver solutions that drive measurable business impact.
                     </p>
                   </div>
                 </div>
 
-                {/* Right Column - CTA Buttons (30%) */}
-                <div className="w-full lg:w-3/10 mb-8 lg:mb-0">
-                  <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col items-center justify-center space-y-6 min-h-full">
+                {/* CTA Buttons Section */}
+                <div className="w-full lg:w-3/10">
+                  <div className="bg-white border-2 border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col items-center justify-center space-y-4 lg:space-y-6">
                     <button
                       onClick={() => openPopup("Speaking Engagement Request")}
-                      className="w-full max-w-xs px-8 py-4 text-lg font-medium text-center text-white bg-gradient-to-r from-[#d97706] to-[#92400e] rounded-lg hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                      className="w-full max-w-xs px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-center text-white bg-gradient-to-r from-[#d97706] to-[#92400e] rounded-lg hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                       Invite Me to Speak
                     </button>
                     <button
                       onClick={() => openPopup("Collaboration Opportunity")}
-                      className="w-full max-w-xs flex items-center justify-center space-x-2 px-8 py-4 text-lg font-medium text-[#d97706] border-2 border-[#d97706] rounded-lg hover:bg-[#d97706] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                      className="w-full max-w-xs flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-[#d97706] border-2 border-[#d97706] rounded-lg hover:bg-[#d97706] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
                       <svg
                         role="img"
                         width="24"
                         height="24"
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
@@ -97,32 +125,32 @@ export const Hero = () => {
 
       {/* Expertise Section */}
       <Container>
-        <div className="flex flex-col justify-center pb-16" style={{paddingTop: '22px'}}>
-          <div className="text-xl text-center text-gray-700 dark:text-white">
+        <div className="flex flex-col justify-center pb-12 lg:pb-16 px-4" style={{paddingTop: '22px'}}>
+          <div className="text-lg sm:text-xl text-center text-gray-700 dark:text-white mb-8 lg:mb-10">
             Expert in <span className="text-[#d97706] font-semibold">cutting-edge</span>{" "}
             technologies and strategic innovation
           </div>
 
-          <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <div className="text-lg font-semibold">Artificial</div>
-              <div className="text-sm">Intelligence</div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div className="text-center text-gray-400 dark:text-gray-400">
+              <div className="text-sm sm:text-base lg:text-lg font-semibold">Artificial</div>
+              <div className="text-xs sm:text-sm">Intelligence</div>
             </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <div className="text-lg font-semibold">Generative</div>
-              <div className="text-sm">AI</div>
+            <div className="text-center text-gray-400 dark:text-gray-400">
+              <div className="text-sm sm:text-base lg:text-lg font-semibold">Generative</div>
+              <div className="text-xs sm:text-sm">AI</div>
             </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <div className="text-lg font-semibold">Software</div>
-              <div className="text-sm">Engineering</div>
+            <div className="text-center text-gray-400 dark:text-gray-400">
+              <div className="text-sm sm:text-base lg:text-lg font-semibold">Software</div>
+              <div className="text-xs sm:text-sm">Engineering</div>
             </div>
-            <div className="pt-1 text-gray-400 dark:text-gray-400">
-              <div className="text-lg font-semibold">Software</div>
-              <div className="text-sm">Architecture</div>
+            <div className="text-center text-gray-400 dark:text-gray-400">
+              <div className="text-sm sm:text-base lg:text-lg font-semibold">Software</div>
+              <div className="text-xs sm:text-sm">Architecture</div>
             </div>
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <div className="text-lg font-semibold">Digital</div>
-              <div className="text-sm">Transformation</div>
+            <div className="text-center text-gray-400 dark:text-gray-400 col-span-2 sm:col-span-1">
+              <div className="text-sm sm:text-base lg:text-lg font-semibold">Digital</div>
+              <div className="text-xs sm:text-sm">Transformation</div>
             </div>
           </div>
         </div>
