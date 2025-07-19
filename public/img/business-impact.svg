@@ -1,0 +1,102 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#d97706" />
+    </linearGradient>
+    <linearGradient id="secondary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78716c" />
+      <stop offset="100%" style="stop-color:#57534e" />
+    </linearGradient>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="url(#bg-gradient)" />
+  
+  <!-- Business Impact Visualization -->
+  <g transform="translate(200, 150)">
+    <!-- Central Platform/Architecture -->
+    <rect x="-60" y="-20" width="120" height="40" rx="8" fill="url(#primary-gradient)" opacity="0.8"/>
+    <rect x="-50" y="-15" width="100" height="30" rx="4" fill="url(#secondary-gradient)" opacity="0.6"/>
+    <rect x="-40" y="-10" width="80" height="20" rx="2" fill="white" opacity="0.9"/>
+    
+    <!-- AI/Tech Components -->
+    <g opacity="0.7">
+      <!-- AI Brain -->
+      <g transform="translate(-80, -60)">
+        <ellipse cx="0" cy="0" rx="20" ry="15" fill="url(#primary-gradient)"/>
+        <circle cx="-6" cy="-3" r="2" fill="white"/>
+        <circle cx="6" cy="-3" r="2" fill="white"/>
+        <path d="M -10 5 Q 0 8 10 5" stroke="white" stroke-width="1" fill="none"/>
+      </g>
+      
+      <!-- Data Processing -->
+      <g transform="translate(80, -60)">
+        <rect x="-15" y="-10" width="30" height="20" rx="3" fill="url(#secondary-gradient)"/>
+        <rect x="-10" y="-6" width="20" height="3" rx="1" fill="url(#primary-gradient)"/>
+        <rect x="-10" y="-1" width="15" height="2" rx="1" fill="url(#primary-gradient)"/>
+        <rect x="-10" y="3" width="18" height="2" rx="1" fill="url(#primary-gradient)"/>
+      </g>
+      
+      <!-- Strategic Elements -->
+      <g transform="translate(-80, 60)">
+        <circle cx="0" cy="0" r="15" fill="url(#primary-gradient)"/>
+        <polygon points="0,-8 6,0 0,8 -6,0" fill="white"/>
+      </g>
+      
+      <g transform="translate(80, 60)">
+        <rect x="-12" y="-12" width="24" height="24" rx="4" fill="url(#secondary-gradient)"/>
+        <rect x="-8" y="-8" width="16" height="16" rx="2" fill="white"/>
+        <rect x="-6" y="-6" width="12" height="4" rx="1" fill="url(#primary-gradient)"/>
+        <rect x="-6" y="-1" width="12" height="4" rx="1" fill="url(#primary-gradient)"/>
+        <rect x="-6" y="4" width="12" height="4" rx="1" fill="url(#primary-gradient)"/>
+      </g>
+    </g>
+    
+    <!-- Connecting Lines -->
+    <g opacity="0.5">
+      <line x1="-60" y1="-45" x2="-50" y2="-20" stroke="url(#primary-gradient)" stroke-width="2"/>
+      <line x1="60" y1="-45" x2="50" y2="-20" stroke="url(#primary-gradient)" stroke-width="2"/>
+      <line x1="-60" y1="45" x2="-50" y2="20" stroke="url(#primary-gradient)" stroke-width="2"/>
+      <line x1="60" y1="45" x2="50" y2="20" stroke="url(#primary-gradient)" stroke-width="2"/>
+    </g>
+    
+    <!-- Impact Arrows -->
+    <g opacity="0.6">
+      <path d="M -120 0 L -100 0 L -105 -5 M -100 0 L -105 5" stroke="url(#primary-gradient)" stroke-width="3" fill="none"/>
+      <path d="M 120 0 L 100 0 L 105 -5 M 100 0 L 105 5" stroke="url(#primary-gradient)" stroke-width="3" fill="none"/>
+      <path d="M 0 -90 L 0 -70 L -5 -75 M 0 -70 L 5 -75" stroke="url(#primary-gradient)" stroke-width="3" fill="none"/>
+      <path d="M 0 90 L 0 70 L -5 75 M 0 70 L 5 75" stroke="url(#primary-gradient)" stroke-width="3" fill="none"/>
+    </g>
+    
+    <!-- Business Value Indicators -->
+    <g opacity="0.4">
+      <!-- Growth Chart -->
+      <g transform="translate(140, -30)">
+        <rect x="0" y="20" width="4" height="15" fill="url(#primary-gradient)"/>
+        <rect x="8" y="15" width="4" height="20" fill="url(#primary-gradient)"/>
+        <rect x="16" y="10" width="4" height="25" fill="url(#primary-gradient)"/>
+        <rect x="24" y="5" width="4" height="30" fill="url(#primary-gradient)"/>
+      </g>
+      
+      <!-- Innovation Metrics -->
+      <g transform="translate(-170, 30)">
+        <circle cx="0" cy="0" r="20" fill="none" stroke="url(#primary-gradient)" stroke-width="3"/>
+        <circle cx="0" cy="0" r="15" fill="url(#primary-gradient)" opacity="0.3"/>
+        <circle cx="0" cy="0" r="5" fill="url(#primary-gradient)"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Abstract Background Elements -->
+  <g opacity="0.1">
+    <circle cx="50" cy="50" r="20" fill="url(#primary-gradient)"/>
+    <circle cx="350" cy="250" r="25" fill="url(#secondary-gradient)"/>
+    <rect x="300" y="30" width="20" height="20" rx="4" fill="url(#primary-gradient)"/>
+    <rect x="80" y="250" width="15" height="15" rx="3" fill="url(#secondary-gradient)"/>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-trueGray-50: #fafafa;
+  --color-trueGray-100: #f5f5f5;
+  --color-trueGray-200: #e5e5e5;
+  --color-trueGray-300: #d4d4d4;
+  --color-trueGray-400: #a3a3a3;
+  --color-trueGray-500: #737373;
+  --color-trueGray-600: #525252;
+  --color-trueGray-700: #404040;
+  --color-trueGray-800: #262626;
+  --color-trueGray-900: #171717;
+  
+  /* TuvisMinds Brand Colors */
+  --color-tuvis-green: #96d712;
+  --color-tuvis-cyan: #2bb9c7;
+  --color-minds-navy: #1a2842;
+  
+  /* Override indigo with brand colors */
+  --color-indigo-100: #e8f4ff;
+  --color-indigo-200: #d0e9ff;
+  --color-indigo-300: #a8d8ff;
+  --color-indigo-400: #7cc5ff;
+  --color-indigo-500: #2bb9c7;
+  --color-indigo-600: #2bb9c7;
+  --color-indigo-700: #1a2842;
+  --color-indigo-800: #1a2842;
+  --color-indigo-900: #1a2842;
+}
+
+@layer base {
+  html,
+  body {
+    @apply dark:bg-trueGray-900;
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+  }
+}
+
+@layer components {
+  .cursive-font {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .shrini-gradient {
+    @apply bg-gradient-to-br from-[#f59e0b] via-[#d97706] to-[#92400e];
+  }
+  
+  .shrini-gradient-hover {
+    @apply hover:bg-gradient-to-br hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300;
+  }
+  
+  .shrini-accent {
+    @apply text-[#f59e0b];
+  }
+  
+  .shrini-primary {
+    @apply text-[#d97706];
+  }
+  
+  .shrini-secondary {
+    @apply text-[#78716c];
+  }
+  
+  .shrini-glow {
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
+  }
+}
+
