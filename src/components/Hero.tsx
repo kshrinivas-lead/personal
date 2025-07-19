@@ -14,30 +14,30 @@ export const Hero = () => {
       <div className="relative w-full bg-white">
         {/* Mobile Layout */}
         <div className="block lg:hidden">
-          {/* Mobile Profile Photo - Centered at Top */}
-          <div className="flex justify-center pt-8 pb-4">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
-              <Image
-                src={profilePhoto}
-                alt="Shrinivas Kulkarni"
-                width={160}
-                height={160}
-                className="object-cover w-full h-full"
-                priority
-              />
-            </div>
-          </div>
-          
-          {/* Mobile Banner Image - Reduced Height */}
+          {/* Mobile Banner Image - Full Height */}
           <div className="relative w-full">
             <Image
               src={heroBanner}
               alt="Lead with Purpose - Build with Intelligence"
               width={1920}
-              height={400}
-              className="object-cover w-full h-48 sm:h-64"
+              height={600}
+              className="object-cover w-full h-64 sm:h-80"
               priority
             />
+            
+            {/* Mobile Profile Photo - Overlay on Banner */}
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                <Image
+                  src={profilePhoto}
+                  alt="Shrinivas Kulkarni"
+                  width={128}
+                  height={128}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
 
