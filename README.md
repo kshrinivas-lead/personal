@@ -1,64 +1,111 @@
-<p align="center">
- <a href="https://web3templates.com/?ref=nextly_github_logo">
- <img src="https://user-images.githubusercontent.com/1884712/132941531-0fdd7acf-47ca-424e-b77f-1fab2e372a37.png" alt="W3T" width="100" height="41"/>
- </a> 
- <br>
- <br>
-</p>
+# K. Shrinivas - Personal Portfolio Website
 
-# Nextly - Landing Page Template with Next.js & Tailwind CSS
+A professional portfolio website showcasing strategic AI leadership, technology innovation, and speaking engagements. Built with Next.js and TailwindCSS, deployed to GitHub Pages.
 
-Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
-And its completely open-source.
- 
-![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
+🌐 **Live Website:** [kshrinivas-lead.github.io/personal](https://kshrinivas-lead.github.io/personal)
 
-## How to use
+## About
 
-Click on the [Use Template](https://github.com/surjithctly/nextly-template/generate) button on this page to clone this respository to your github account. Or you can also clone this respository using terminal or bash. 
+This website presents K. Shrinivas's expertise in AI strategy, technology leadership, and digital transformation. It serves as a comprehensive portfolio highlighting professional capabilities, speaking engagements, and strategic consulting services.
 
-### 1\. Clone this Repository
+### Key Sections
 
-```bash
-git clone https://github.com/surjithctly/nextly-template.git
-```
+- **Strategic AI Leadership**: Frameworks for intelligent system architecture and business transformation
+- **Speaking & Training**: Interactive sessions on AI strategy, critical thinking, and digital transformation
+- **Professional Services**: AI consulting, architecture design, and technology strategy
+- **Contact & Collaboration**: Multiple touchpoints for professional engagement
 
-### 2\. Navigate to the directory
+## Professional Highlights
 
-```
-cd nextly-template
-```
+### AI Strategy & Leadership
+- **Agentic AI Systems**: Autonomous intelligent agents with context-aware decision making
+- **Conversational Automation**: Sophisticated dialogue systems with natural language understanding
+- **AI Action Orchestration**: Visual workflow composition and intelligent process optimization
+- **Knowledge Integration**: Dynamic knowledge graphs with semantic reasoning capabilities
 
-### 3\. Install dependencies
+### Speaking & Training Expertise
+- **Strategic AI Leadership**: C-Suite presentations on AI transformation and business impact
+- **Critical Analytical Thinking**: MBA-level sessions on data-driven decision making
+- **Agile & Scrum Fundamentals**: Deep-dive workshops on methodology evolution and application
+- **Digital Transformation**: Executive briefings on technology strategy and business outcomes
 
-```
-yarn install
-# or
-npm install
-```
+### Recent Engagements
+- **SICSR, Symbiosis International University**: MBA Strategic Thinking Sessions
+- **Engineering Leadership**: Technology History & Fundamentals workshops
+- **Industry Conferences**: AI implementation and digital transformation keynotes
 
-### 5\. Run Dev Server
+## Technical Stack
 
-```
-yarn dev
-# or
-npm run dev
-```
+- **Frontend**: Next.js 15, React 18, TypeScript
+- **Styling**: TailwindCSS 4, PostCSS
+- **Icons**: Heroicons
+- **Deployment**: GitHub Pages with GitHub Actions
+- **Development**: ESLint, Node.js 20
 
-## Deploy with Vercel
+## Local Development
 
-Deploy this template using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Prerequisites
+- Node.js 20 or higher
+- npm or yarn package manager
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/surjithctly/nextly-template&project-name=nextly-template&repository-name=nextly-template)
+### Setup Instructions
 
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kshrinivas-lead/personal.git
+   cd personal
+   ```
 
-## Author
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Surjith S M ( [@surjithctly](https://surjithctly.in/) )
+3. **Run development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+The website will be available at `http://localhost:3000`
+
+## Deployment
+
+This website is automatically deployed to GitHub Pages using GitHub Actions. The workflow:
+
+1. Triggers on pushes to the `main` branch
+2. Builds the Next.js application with static export
+3. Deploys to GitHub Pages with basePath `/personal`
+4. Available at: `https://kshrinivas-lead.github.io/personal`
+
+## Contact Information
+
+**K. Shrinivas**
+- 📧 Email: [kshrinivas.lead@gmail.com](mailto:kshrinivas.lead@gmail.com)
+- 📱 Phone: +91 98909 51119
+- 🌐 Website: [kshrinivas-lead.github.io/personal](https://kshrinivas-lead.github.io/personal)
+
+## Professional Services
+
+- AI Strategy Consulting
+- Technology Architecture Design
+- Digital Transformation Planning
+- Speaking Engagements & Training
+- Executive Coaching & Mentorship
 
 ---
 
-[![image](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=web3templates&utm_campaign=oss)
+Built with ❤️ using Next.js and TailwindCSS
 
 
 
