@@ -21,7 +21,7 @@ export const Hero = () => {
               alt="Lead with Purpose - Build with Intelligence"
               width={1920}
               height={600}
-              className="object-cover w-full h-64 sm:h-80"
+              className="object-cover w-full h-80 sm:h-96 md:h-[400px]"
               priority
             />
             
