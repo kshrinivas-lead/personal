@@ -47,20 +47,27 @@ export function DownloadGrounded() {
     if (!email.trim()) return;
     setStatus("sending");
 
+    // FormData, not JSON. A JSON content-type makes this a "preflighted" request,
+    // and Web3Forms does not answer the OPTIONS probe from this origin — the POST
+    // never leaves the browser. FormData is a CORS-safelisted content type, so it
+    // goes straight out with no preflight.
+    const form = new FormData();
+    form.append("access_key", WEB3FORMS_KEY);
+    form.append("subject", "Grounded v1.0 — someone left their email");
+    form.append("from_name", "Grounded (website)");
+    form.append("email", email.trim());
+    form.append(
+      "message",
+      `${email.trim()} asked to hear what the field data says.`
+    );
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: "Grounded v1.0 — someone left their email",
-          from_name: "Grounded (website)",
-          email: email.trim(),
-          message: `${email.trim()} asked to hear what the field data says.`,
-        }),
+        body: form,
       });
-
-      setStatus(response.ok ? "sent" : "error");
+      const result = await response.json();
+      setStatus(result.success ? "sent" : "error");
     } catch {
       setStatus("error");
     }
