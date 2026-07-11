@@ -1,10 +1,10 @@
 {
-  "name": "nextly-template",
+  "name": "shrinivaskulkarni",
   "version": "2.0.0",
-  "description": "Nextly Landing Page Template",
+  "description": "Personal site — Shrinivas Kulkarni",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--require ./scripts/node25-localstorage-shim.cjs' next dev",
     "build": "next build",
     "build:gh": "next build",
     "start": "next start",

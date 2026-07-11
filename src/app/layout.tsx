@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-serif",
+});
 
-const inter = Inter({ subsets: ["latin"] });
-const manrope = Manrope({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: "Shrini - AI Strategist & Software Architect",
-  description: "Shrinivas Kulkarni is an AI strategist, software architect, and thought leader focused on translating AI innovation into business value. Bridging cutting-edge technology with strategic business impact.",
+  title: "Shrinivas Kulkarni — Enterprise AI, Governance, Transformation",
+  description:
+    "Twenty-six years in enterprise technology, spent on one question: when AI starts taking real actions inside a business, who decided it was allowed to?",
 };
 
 export default function RootLayout({
@@ -21,17 +30,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" 
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${inter.className} ${manrope.className}`}>
+    /* The font variables must live on <html>, not <body>. `--font-serif` is
+       declared on :root and references `--font-source-serif`; if that inner
+       variable is only defined on <body>, it is undefined at :root and the
+       whole declaration computes to empty — silently falling back to sans. */
+    <html
+      lang="en-GB"
+      suppressHydrationWarning
+      className={`${sourceSerif.variable} ${inter.variable}`}
+    >
+      <body>
         <ThemeProvider attribute="class">
+          <a
+            href="#main"
+            className="u-sans sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-sm"
+          >
+            Skip to content
+          </a>
           <Navbar />
-          <div>{children}</div>
+          <main id="main">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

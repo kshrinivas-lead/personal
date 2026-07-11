@@ -34,3 +34,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+
+# Internal brand/working documents — not for the public repo.
+# Remove these lines if you deliberately want them versioned publicly.
+/persona.md
+/personal-brand-persona.md
+/User_Persona*.md
+/content/

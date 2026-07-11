@@ -1,73 +1,180 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-trueGray-50: #fafafa;
-  --color-trueGray-100: #f5f5f5;
-  --color-trueGray-200: #e5e5e5;
-  --color-trueGray-300: #d4d4d4;
-  --color-trueGray-400: #a3a3a3;
-  --color-trueGray-500: #737373;
-  --color-trueGray-600: #525252;
-  --color-trueGray-700: #404040;
-  --color-trueGray-800: #262626;
-  --color-trueGray-900: #171717;
-  
-  /* TuvisMinds Brand Colors */
-  --color-tuvis-green: #96d712;
-  --color-tuvis-cyan: #2bb9c7;
-  --color-minds-navy: #1a2842;
-  
-  /* Override indigo with brand colors */
-  --color-indigo-100: #e8f4ff;
-  --color-indigo-200: #d0e9ff;
-  --color-indigo-300: #a8d8ff;
-  --color-indigo-400: #7cc5ff;
-  --color-indigo-500: #2bb9c7;
-  --color-indigo-600: #2bb9c7;
-  --color-indigo-700: #1a2842;
-  --color-indigo-800: #1a2842;
-  --color-indigo-900: #1a2842;
+/* `static` is load-bearing: Tailwind v4 tree-shakes theme variables that no
+   utility class references, and these are consumed by raw CSS in the layers
+   below (font-family, .u-pullquote, ::selection). Without it they emit as empty
+   and the site silently falls back to sans-serif. */
+@theme static {
+  /* ---- Ink & paper ------------------------------------------------------ */
+  --color-paper: #fbfaf8;
+  --color-paper-raised: #ffffff;
+  --color-ink: #16150f;
+  --color-ink-body: #33322c;
+  --color-ink-muted: #6b6a62;
+  --color-ink-faint: #96958c;
+  --color-rule: #e3e1da;
+  --color-rule-strong: #cfccc2;
+
+  /* Dark */
+  --color-paper-dk: #131311;
+  --color-paper-raised-dk: #1c1c19;
+  --color-ink-dk: #f4f3ef;
+  --color-ink-body-dk: #cfcdc5;
+  --color-ink-muted-dk: #93918a;
+  --color-rule-dk: #2e2e2a;
+
+  /* ---- Semantic accents -------------------------------------------------
+     Lifted from the Grounded concept note. Colour carries meaning here:
+     it marks a verdict, a gate, or a fault. It is never decoration.        */
+  --color-pass: #2f5d43;          /* Yes — evidence named. Grounded.        */
+  --color-pass-bg: #e8f0ea;
+  --color-partial: #8a6a1c;       /* Partially — artifact stale or unnamed. */
+  --color-partial-bg: #f6efdb;
+  --color-fail: #9b2c2c;          /* No — gate failed. Fault line.          */
+  --color-fail-bg: #f7e7e5;
+
+  --color-pass-bg-dk: #1b2a20;
+  --color-partial-bg-dk: #2c2617;
+  --color-fail-bg-dk: #2c1b19;
+
+  --font-serif: var(--font-source-serif), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
-  html,
-  body {
-    @apply dark:bg-trueGray-900;
-    font-family: 'Manrope', sans-serif;
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink-body);
+    font-family: var(--font-serif);
+    /* Long-form reading is the primary job of this site. */
+    font-size: 1.1875rem;
+    line-height: 1.65;
+  }
+
+  .dark body {
+    background-color: var(--color-paper-dk);
+    color: var(--color-ink-body-dk);
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.011em;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: var(--color-ink-dk);
+  }
+
+  /* Focus is a visible, high-contrast thing. Never removed. */
+  :where(a, button, input, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-fail);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-partial-bg);
+    color: var(--color-ink);
   }
 }
 
 @layer components {
-  .cursive-font {
-    font-family: 'Dancing Script', cursive;
+  /* Structure — labels, nav, captions, eyebrows. Never argument. */
+  .u-sans {
+    font-family: var(--font-sans);
   }
-  
-  .shrini-gradient {
-    @apply bg-gradient-to-br from-[#f59e0b] via-[#d97706] to-[#92400e];
+
+  .u-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
   }
-  
-  .shrini-gradient-hover {
-    @apply hover:bg-gradient-to-br hover:from-[#f59e0b] hover:to-[#d97706] transition-all duration-300;
+
+  .dark .u-eyebrow { color: var(--color-ink-muted-dk); }
+
+  /* The reading measure. ~68 characters. */
+  .u-measure { max-width: 34rem; }
+
+  .u-prose p + p { margin-top: 1.15rem; }
+
+  .u-prose strong {
+    font-weight: 600;
+    color: var(--color-ink);
   }
-  
-  .shrini-accent {
-    @apply text-[#f59e0b];
+
+  .dark .u-prose strong { color: var(--color-ink-dk); }
+
+  /* Pull quote — must be able to stand alone on a slide. */
+  .u-pullquote {
+    border-left: 3px solid var(--color-ink);
+    padding-left: 1.25rem;
+    font-style: italic;
+    font-size: 1.3125rem;
+    line-height: 1.5;
+    color: var(--color-ink);
   }
-  
-  .shrini-primary {
-    @apply text-[#d97706];
+
+  .dark .u-pullquote {
+    border-left-color: var(--color-ink-dk);
+    color: var(--color-ink-dk);
   }
-  
-  .shrini-secondary {
-    @apply text-[#78716c];
+
+  /* Verdict / answer chips — Yes, Partially, No, Grounded, Ungrounded. */
+  .u-chip {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    white-space: nowrap;
   }
-  
-  .shrini-glow {
-    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
+
+  .u-chip-pass    { background: var(--color-pass-bg);    color: var(--color-pass); }
+  .u-chip-partial { background: var(--color-partial-bg); color: var(--color-partial); }
+  .u-chip-fail    { background: var(--color-fail-bg);    color: var(--color-fail); }
+
+  .dark .u-chip-pass    { background: var(--color-pass-bg-dk);    color: #7fb894; }
+  .dark .u-chip-partial { background: var(--color-partial-bg-dk); color: #d6b45f; }
+  .dark .u-chip-fail    { background: var(--color-fail-bg-dk);    color: #dd8a84; }
+
+  .u-rule {
+    border: 0;
+    border-top: 1px solid var(--color-rule);
   }
+
+  .dark .u-rule { border-top-color: var(--color-rule-dk); }
+
+  /* The only link style. Underline is the affordance; no colour needed. */
+  .u-link {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-rule-strong);
+    transition: text-decoration-color 150ms;
+  }
+
+  .u-link:hover { text-decoration-color: var(--color-ink); }
+  .dark .u-link { color: var(--color-ink-dk); }
+  .dark .u-link:hover { text-decoration-color: var(--color-ink-dk); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
