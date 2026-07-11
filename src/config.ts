@@ -23,12 +23,12 @@ export const COUNTER_KEY = "grounded-v1-pdf";
 
 export const CONTACT_EMAIL = "kshrinivas.lead@gmail.com";
 
-/** Must match `basePath` in next.config.js — empty in dev, "/personal" in the
- *  production build for GitHub Pages. Static export does not prefix plain
- *  <a href> or fetch() paths — only next/link and next/image. So asset links
- *  under public/ must carry it explicitly. NODE_ENV is inlined at build time. */
-export const BASE_PATH =
-  process.env.NODE_ENV === "production" ? "/personal" : "";
+/** The site is served from the root of shrini.tuvisminds.com, so there is no
+ *  basePath to prepend — in dev or in production. Kept as a named constant
+ *  because static export does not prefix plain <a href> paths (only next/link
+ *  and next/image do), so if a basePath is ever reintroduced, this is the one
+ *  place asset links need to learn about it. */
+export const BASE_PATH = "";
 
 /** Drop the PDF at public/grounded-concept-note-v1.pdf */
 export const GROUNDED_PDF = `${BASE_PATH}/grounded-concept-note-v1.pdf`;

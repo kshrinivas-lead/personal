@@ -1,0 +1,64 @@
+name: Build and deploy to personal.deploy
+
+# This repo holds the source. The built static site is pushed to
+# kshrinivas-lead/personal.deploy, which GitHub Pages serves at
+# shrini.tuvisminds.com.
+#
+# Requires a secret named DEPLOY_TOKEN on this repo: a Personal Access Token
+# with write access to the personal.deploy repository. The built-in GITHUB_TOKEN
+# cannot push to a different repo, which is why a PAT is needed.
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+# Never let two deploys race each other into the same repo.
+concurrency:
+  group: "deploy"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      # public/CNAME and public/.nojekyll are copied into out/ by Next. If either
+      # is missing the custom domain drops or Pages mangles the _next directory,
+      # so fail loudly here rather than deploying a broken site.
+      - name: Verify the export
+        run: |
+          test -f out/index.html          || { echo "::error::out/index.html missing"; exit 1; }
+          test -f out/CNAME               || { echo "::error::out/CNAME missing — custom domain would be dropped"; exit 1; }
+          test -f out/.nojekyll           || { echo "::error::out/.nojekyll missing — Pages would ignore /_next"; exit 1; }
+          test -f out/grounded/index.html || { echo "::error::out/grounded/index.html missing"; exit 1; }
+          test -f out/grounded-concept-note-v1.pdf || { echo "::error::the Grounded PDF is missing"; exit 1; }
+          grep -q 'href="/_next' out/index.html || { echo "::error::assets are not root-relative — basePath has crept back in"; exit 1; }
+          echo "Export verified: $(find out -type f | wc -l) files"
+
+      - name: Publish to personal.deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: kshrinivas-lead/personal.deploy
+          publish_branch: main
+          publish_dir: ./out
+          # Replace the branch contents outright — stale files from the old
+          # template site (ai-strategy/, speaking/, img/) must not linger.
+          force_orphan: true
+          cname: shrini.tuvisminds.com
+          commit_message: "Deploy from personal@${{ github.sha }}"
