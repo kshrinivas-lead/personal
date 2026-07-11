@@ -20,13 +20,19 @@ export default function Contact() {
 
         <div className="u-prose u-measure mt-8 text-ink-body dark:text-ink-body-dk">
           <p>
-            No form, no booking widget. If you have read something here and think it
-            is wrong, that is the email I most want to receive.
+            No form, no booking widget. Write if you have an AI investment you are
+            weighing, a governance problem you are stuck on, a room you would like
+            me to speak to — or an argument you want tested before you take it to
+            your board.
           </p>
           <p>
-            I also lecture and speak — on enterprise AI, governance, and why
-            transformation programmes fail for reasons that have nothing to do with
-            the technology. Same address.
+            And if you think something here is wrong, say so. That email is welcome
+            too, and it is the kind I learn most from.
+          </p>
+          <p>
+            I lecture and speak on enterprise AI, governance, and why transformation
+            programmes fail for reasons that have nothing to do with the technology.
+            Same address.
           </p>
         </div>
       </section>
