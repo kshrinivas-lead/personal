@@ -12,8 +12,8 @@ export default function Home() {
         </p>
 
         <h1 className="mt-5 text-3xl font-semibold leading-[1.15] sm:text-[2.75rem]">
-          Enterprises spent thirty years building governance for humans. They have
-          not yet built it for AI.
+          Your company knows exactly who is allowed to approve a &pound;2m payment.
+          It has no equivalent answer for the agent that just raised one.
         </h1>
 
         <div className="u-prose mt-7 text-lg text-ink-body sm:text-xl dark:text-ink-body-dk">

@@ -11,7 +11,7 @@ const IDEAS = [
     n: "01",
     title: "The governance gap is real, and under-discussed",
     body: [
-      "Enterprises have spent thirty years building governance for humans. Delegated authority. Segregation of duties. A signature that means somebody's name is on it. We have not built the equivalent for systems that act.",
+      "Your company knows exactly who is allowed to approve a £2m payment. Delegated authority. Segregation of duties. A signature that means somebody's name is on it. It has no equivalent answer for the agent that just raised one.",
       "What is called AI governance today is mostly monitoring and reporting — a careful account of what has already happened. Useful, but an audit log is not a control; it is a record of the moment the control was missing. The interesting question is what a system is structurally permitted to do before an action commits.",
     ],
     limit:
