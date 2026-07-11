@@ -13,7 +13,8 @@ export const GROUNDED_PUBLISHED = true;
  *  Get one free at https://web3forms.com (no account needed beyond the address).
  *  This key is public by design; it can only send mail to the verified address. */
 export const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ??
+  "12da7a5f-448a-463a-a366-5f93859be393";
 
 /** Namespace for the download counter (Abacus). Counts clicks, not reads.
  *  Deliberately not rendered on the page — see notes in DownloadGrounded.tsx. */
