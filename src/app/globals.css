@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+/* Tailwind v4 keys `dark:` off prefers-color-scheme by default. next-themes
+   toggles a .dark class on <html> instead, so without this every `dark:`
+   utility on the site is silently ignored — the raw `.dark h1` rules below
+   would still fire, leaving white headings over dark-on-dark body text. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* `static` is load-bearing: Tailwind v4 tree-shakes theme variables that no
    utility class references, and these are consumed by raw CSS in the layers
    below (font-family, .u-pullquote, ::selection). Without it they emit as empty
