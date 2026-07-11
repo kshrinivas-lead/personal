@@ -1,10 +1,7 @@
 "use client";
-import Image from "next/image";
 import { Container } from "@/components/Container";
 import { ContactPopup } from "@/components/ContactPopup";
 import { useContactPopup } from "@/hooks/useContactPopup";
-import heroBanner from "../../public/img/hero-banner.jpg";
-import profilePhoto from "../../public/img/shrini-profile.jpg";
 
 export const Hero = () => {
   const { isOpen, title, openPopup, closePopup } = useContactPopup();
@@ -12,61 +9,85 @@ export const Hero = () => {
     <>
       {/* Hero Section with White Background */}
       <div className="relative w-full bg-white">
-        {/* Mobile Layout */}
-        <div className="block lg:hidden">
-          {/* Mobile Banner Image - Full Height */}
-          <div className="block lg:hidden">
-            <div className="relative w-full h-35">
-              <Image
-                src={heroBanner}
-                alt="Lead with Purpose"
-                width={1920}
-              height={600}
-                className="object-cover"
-                priority
-              />
-
-              {/* Center profile */}
-              <div className="absolute left-1/6 translate-x-[-50%] bottom-[2px] z-10">
-                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl relative">
-                  <Image
-                    src={profilePhoto}
-                    alt="Shrinivas Kulkarni"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden lg:block relative w-full">
-          <Image
-            src={heroBanner}
-            alt="Lead with Purpose - Build with Intelligence"
-            width={1920}
-            height={600}
-            className="object-cover w-full h-auto"
-            priority
+        {/* Hero Banner */}
+        <div className="relative w-full overflow-hidden bg-[radial-gradient(ellipse_at_top_left,_#4338ca_0%,_#1e1b4b_28%,_#0a0a14_60%,_#000000_100%)] py-16 sm:py-20 lg:py-24">
+          {/* Dot grid pattern */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[6%] top-[8%] hidden sm:block w-32 h-20 lg:w-40 lg:h-24 opacity-60"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, rgba(255,255,255,0.7) 1.5px, transparent 1.5px)",
+              backgroundSize: "16px 16px",
+            }}
           />
 
-          {/* Desktop Professional Photo Overlay - Left Side */}
-          <div className="absolute left-8 top-1/2 transform -translate-y-1/2 z-10">
-            <div className="relative">
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                <Image
-                  src={profilePhoto}
-                  alt="Shrinivas Kulkarni"
-                  width={256}
-                  height={256}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
+          {/* Wireframe crystal, top-left */}
+          <svg
+            aria-hidden="true"
+            className="absolute -left-6 -top-8 w-36 h-36 sm:w-48 sm:h-48 lg:w-64 lg:h-64 opacity-70"
+            viewBox="0 0 200 200"
+            fill="none"
+          >
+            <polygon points="40,10 90,40 70,100 20,90 10,50" stroke="white" strokeWidth="1" strokeOpacity="0.6" />
+            <polyline points="40,10 70,100" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
+            <polyline points="90,40 20,90" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
+            <polyline points="10,50 70,100" stroke="white" strokeWidth="1" strokeOpacity="0.3" />
+            <polygon points="90,40 150,30 160,80 110,110 70,100" stroke="white" strokeWidth="1" strokeOpacity="0.5" />
+            <polyline points="90,40 110,110" stroke="white" strokeWidth="1" strokeOpacity="0.3" />
+            <polyline points="150,30 70,100" stroke="white" strokeWidth="1" strokeOpacity="0.25" />
+          </svg>
+
+          {/* Flowing wave lines, bottom-left */}
+          <svg
+            aria-hidden="true"
+            className="absolute left-0 -bottom-6 w-56 sm:w-72 lg:w-96 opacity-60 hidden sm:block"
+            viewBox="0 0 400 150"
+            fill="none"
+          >
+            <path d="M0,110 C50,70 90,140 140,100 C190,60 230,130 280,90 C320,60 360,110 400,80" stroke="#818cf8" strokeWidth="1.5" strokeOpacity="0.6" />
+            <path d="M0,95 C50,55 90,125 140,85 C190,45 230,115 280,75 C320,45 360,95 400,65" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M0,125 C50,85 90,155 140,115 C190,75 230,145 280,105 C320,75 360,125 400,95" stroke="#a78bfa" strokeWidth="1.5" strokeOpacity="0.4" />
+            <path d="M0,140 C50,100 90,170 140,130 C190,90 230,160 280,120 C320,90 360,140 400,110" stroke="#ffffff" strokeWidth="1" strokeOpacity="0.3" />
+          </svg>
+
+          {/* Wireframe geodesic sphere, right side */}
+          <svg
+            aria-hidden="true"
+            className="absolute right-[4%] top-1/2 -translate-y-1/2 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 opacity-80 hidden sm:block"
+            viewBox="0 0 200 200"
+            fill="none"
+          >
+            <circle cx="100" cy="100" r="88" stroke="white" strokeWidth="1" strokeOpacity="0.5" />
+            <ellipse cx="100" cy="100" rx="88" ry="30" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
+            <ellipse cx="100" cy="100" rx="88" ry="30" stroke="white" strokeWidth="1" strokeOpacity="0.4" transform="rotate(60 100 100)" />
+            <ellipse cx="100" cy="100" rx="88" ry="30" stroke="white" strokeWidth="1" strokeOpacity="0.4" transform="rotate(120 100 100)" />
+            <ellipse cx="100" cy="100" rx="30" ry="88" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
+            <polyline points="100,12 42,60 100,100 158,60 100,12" stroke="white" strokeWidth="0.8" strokeOpacity="0.35" />
+            <polyline points="12,100 60,60 100,100 60,140 12,100" stroke="white" strokeWidth="0.8" strokeOpacity="0.35" />
+            <polyline points="188,100 140,60 100,100 140,140 188,100" stroke="white" strokeWidth="0.8" strokeOpacity="0.35" />
+            <polyline points="100,188 42,140 100,100 158,140 100,188" stroke="white" strokeWidth="0.8" strokeOpacity="0.35" />
+          </svg>
+
+          {/* Banner content */}
+          <Container>
+            <div className="relative z-10 max-w-2xl">
+              <p className="text-xs sm:text-sm font-semibold tracking-widest text-gray-200 uppercase">
+                AI Strategy &middot; Responsible AI &middot; AI Governance
+              </p>
+              <div className="h-0.5 w-16 bg-gradient-to-r from-[#d97706] to-[#f59e0b] my-4" />
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight">
+                AI That Ships.
+              </h1>
+              <h2 className="mt-1 text-xl sm:text-2xl lg:text-3xl font-medium text-gray-200">
+                Governed from Day One
+              </h2>
+              <div className="h-px w-24 bg-white/40 my-4 sm:my-5" />
+              <p className="text-sm sm:text-base text-gray-300">
+                26 Years Engineering &rarr; AI Strategy &middot; Stanford LEAD &middot; MBA (Strategy) &middot; Faculty &ndash; Symbiosis University
+              </p>
             </div>
-          </div>
+          </Container>
         </div>
 
         {/* Content Section - Below Banner */}
