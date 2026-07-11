@@ -29,7 +29,7 @@ const TRAJECTORY = [
 export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
-      <header className="pt-16 sm:pt-24">
+      <header className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         <p className="u-eyebrow">About</p>
         <h1 className="mt-4 text-3xl font-semibold sm:text-4xl">
           Twenty-six years, one direction of travel

@@ -37,7 +37,7 @@ export default function GroundedPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
       {/* ---- Opening ------------------------------------------------------- */}
-      <header className="pt-14 sm:pt-20">
+      <header className="pt-14 pb-14 sm:pt-20 sm:pb-20">
         <p className="u-eyebrow">
           Concept Note · Version 1.0 · Published for comment
         </p>

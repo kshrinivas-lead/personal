@@ -52,7 +52,7 @@ const IDEAS = [
 export default function PointOfView() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
-      <header className="pt-16 sm:pt-24">
+      <header className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         <p className="u-eyebrow">Point of view</p>
         <h1 className="mt-4 text-3xl font-semibold sm:text-4xl">
           Four ideas I keep returning to
