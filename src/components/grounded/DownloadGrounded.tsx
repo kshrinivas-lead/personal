@@ -32,6 +32,12 @@ function countDownload() {
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/** Better to ask for nothing than to ask and then drop it on the floor. If the
+ *  Web3Forms key is not set, the optional-email block is not rendered at all —
+ *  the PDF still downloads, which is the part that matters. */
+const EMAIL_ENABLED =
+  WEB3FORMS_KEY && !WEB3FORMS_KEY.startsWith("REPLACE_WITH_");
+
 export function DownloadGrounded() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -96,6 +102,8 @@ export function DownloadGrounded() {
         No email required. No form in the way.
       </p>
 
+      {EMAIL_ENABLED && (
+        <>
       <hr className="u-rule my-8" />
 
       <h3 className="u-sans text-sm font-semibold text-ink dark:text-ink-dk">
@@ -144,6 +152,8 @@ export function DownloadGrounded() {
           That did not go through. The PDF is unaffected — it is above, and it does
           not need this form.
         </p>
+      )}
+        </>
       )}
     </div>
   );

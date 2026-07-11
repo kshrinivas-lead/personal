@@ -7,7 +7,7 @@
  *
  * Flip to true on publication day. That is the only change required.
  */
-export const GROUNDED_PUBLISHED = false;
+export const GROUNDED_PUBLISHED = true;
 
 /** Web3Forms access key — delivers submissions to kshrinivas.lead@gmail.com.
  *  Get one free at https://web3forms.com (no account needed beyond the address).
