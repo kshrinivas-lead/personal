@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { Strata } from "@/components/grounded/Strata";
 import { GROUNDED_PUBLISHED } from "@/config";
+import { JsonLd, personJsonLd } from "@/components/JsonLd";
 
 export default function Home() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
+      <JsonLd data={personJsonLd} />
       {/* ---- The hero is an argument, not a banner ------------------------- */}
       <section className="pt-16 pb-14 sm:pt-24 sm:pb-20">
         <p className="u-eyebrow">

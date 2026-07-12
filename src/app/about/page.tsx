@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "About — Shrinivas Kulkarni",
   description:
     "Twenty-six years in enterprise technology: engineering, architecture, enterprise AI leadership, and the governance question.",
+  alternates: { canonical: "/about" },
 };
 
 const TRAJECTORY = [

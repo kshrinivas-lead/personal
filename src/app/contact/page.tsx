@@ -4,6 +4,7 @@ import { CONTACT_EMAIL } from "@/config";
 export const metadata: Metadata = {
   title: "Contact — Shrinivas Kulkarni",
   description: "An email address.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function Contact() {

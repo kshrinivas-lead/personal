@@ -24,6 +24,20 @@ export const TOOLKIT_COUNTER_KEY = "grounded-v1-toolkit";
 
 export const CONTACT_EMAIL = "kshrinivas.lead@gmail.com";
 
+/** Canonical origin. Matches public/CNAME — the site is served from here and
+ *  nowhere else. Required by metadataBase: without it, every relative Open
+ *  Graph image URL resolves against localhost and the social cards break in
+ *  production while looking perfect in dev. */
+export const SITE_URL = "https://shrini.tuvisminds.com";
+
+export const SITE_NAME = "Shrinivas Kulkarni";
+
+/** Google Tag Manager container. GTM (not gtag) is deliberate: it means the
+ *  analytics configuration lives in GTM's UI, not in this repo — including
+ *  Consent Mode, which is where a cookie banner would be wired if one is ever
+ *  added. No consent banner ships today; see the note in layout.tsx. */
+export const GTM_ID = "GTM-TXK2MSDD";
+
 /** The site is served from the root of shrini.tuvisminds.com, so there is no
  *  basePath to prepend — in dev or in production. Kept as a named constant
  *  because static export does not prefix plain <a href> paths (only next/link

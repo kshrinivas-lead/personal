@@ -9,12 +9,30 @@ import {
 } from "@/components/grounded/Figures";
 import { DownloadGrounded } from "@/components/grounded/DownloadGrounded";
 import { ToolkitTeaser } from "@/components/grounded/Toolkit";
+import { JsonLd, groundedJsonLd } from "@/components/JsonLd";
 import { BLOCKS, FAILURE_MODES } from "@/content/grounded";
 
+const TITLE = "Grounded — a framework for testing AI investment readiness";
+const DESCRIPTION =
+  "Most AI investments do not fail because the technology is weak. They fail because the foundation underneath them was never tested before the capital was committed. Grounded is an open diagnostic for running that test — with the eight artifacts needed to run it, free and editable.";
+
 export const metadata: Metadata = {
-  title: "Grounded — a framework for testing AI investment readiness",
-  description:
-    "Most AI investments do not fail because the technology is weak. They fail because the foundation underneath them was never tested before the capital was committed. Grounded is an open diagnostic for running that test — with the eight artifacts needed to run it, free and editable.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/grounded" },
+  openGraph: {
+    type: "article",
+    url: "/grounded",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: "/og/og-grounded.png", width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og/og-grounded.png"],
+  },
 };
 
 function Section({
@@ -43,6 +61,8 @@ function Section({
 export default function GroundedPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
+      <JsonLd data={groundedJsonLd} />
+
       {/* ---- Opening ------------------------------------------------------- */}
       <header className="pt-14 pb-14 sm:pt-20 sm:pb-20">
         <p className="u-eyebrow">

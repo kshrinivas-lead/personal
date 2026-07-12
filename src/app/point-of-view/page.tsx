@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Point of view — Shrinivas Kulkarni",
   description:
     "Four ideas about enterprise AI: the governance gap, why reliability cannot come from the model, why the bottleneck is never the technology, and what happens to judgement that stops accumulating.",
+  alternates: { canonical: "/point-of-view" },
 };
 
 const IDEAS = [

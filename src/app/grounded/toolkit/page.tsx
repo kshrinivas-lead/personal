@@ -3,11 +3,29 @@ import Link from "next/link";
 import { Toolkit } from "@/components/grounded/Toolkit";
 import { DownloadGrounded } from "@/components/grounded/DownloadGrounded";
 import { TOOLKIT_RULES } from "@/content/grounded";
+import { JsonLd, toolkitJsonLd } from "@/components/JsonLd";
+
+const TITLE = "The Grounded Practice Toolkit — eight artifacts, free and editable";
+const DESCRIPTION =
+  "Everything a facilitator needs to run a Grounded Assessment — from the engagement letter to the board one-pager. Six Word templates, two Excel workbooks. Open, editable, ungated.";
 
 export const metadata: Metadata = {
-  title: "The Grounded Practice Toolkit — eight artifacts, free and editable",
-  description:
-    "Everything a facilitator needs to run a Grounded Assessment — from the engagement letter to the board one-pager. Six Word templates, two Excel workbooks. Open, editable, ungated.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/grounded/toolkit" },
+  openGraph: {
+    type: "article",
+    url: "/grounded/toolkit",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: "/og/og-toolkit.png", width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og/og-toolkit.png"],
+  },
 };
 
 /**
@@ -24,6 +42,8 @@ export const metadata: Metadata = {
 export default function ToolkitPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 sm:px-8">
+      <JsonLd data={toolkitJsonLd} />
+
       <header className="pt-14 pb-12 sm:pt-20 sm:pb-16">
         <p className="u-eyebrow">Practice Toolkit · Version 1.0</p>
 
