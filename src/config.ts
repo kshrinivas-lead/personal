@@ -20,6 +20,7 @@ export const WEB3FORMS_KEY =
  *  Deliberately not rendered on the page — see notes in DownloadGrounded.tsx. */
 export const COUNTER_NAMESPACE = "kshrinivas-personal";
 export const COUNTER_KEY = "grounded-v1-pdf";
+export const TOOLKIT_COUNTER_KEY = "grounded-v1-toolkit";
 
 export const CONTACT_EMAIL = "kshrinivas.lead@gmail.com";
 
@@ -32,3 +33,10 @@ export const BASE_PATH = "";
 
 /** Drop the PDF at public/grounded-concept-note-v1.pdf */
 export const GROUNDED_PDF = `${BASE_PATH}/grounded-concept-note-v1.pdf`;
+
+/** The eight practice artifacts (Word / Excel), plus a zip of all of them.
+ *  Ungated, exactly like the note — see DownloadGrounded.tsx. A framework that
+ *  claims to be open and then puts a form in front of its own templates is not
+ *  open; it is lead generation with a manifesto attached. */
+export const TOOLKIT_DIR = `${BASE_PATH}/toolkit`;
+export const TOOLKIT_ZIP = `${TOOLKIT_DIR}/grounded-toolkit-v1.zip`;

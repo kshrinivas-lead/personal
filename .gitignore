@@ -41,3 +41,6 @@ yarn-error.log*
 /personal-brand-persona.md
 /User_Persona*.md
 /content/
+
+# typescript incremental build cache
+tsconfig.tsbuildinfo

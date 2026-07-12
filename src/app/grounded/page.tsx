@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Strata } from "@/components/grounded/Strata";
 import {
   TenBlocks,
@@ -7,25 +8,31 @@ import {
   VerdictLogic,
 } from "@/components/grounded/Figures";
 import { DownloadGrounded } from "@/components/grounded/DownloadGrounded";
+import { ToolkitTeaser } from "@/components/grounded/Toolkit";
 import { BLOCKS, FAILURE_MODES } from "@/content/grounded";
 
 export const metadata: Metadata = {
   title: "Grounded — a framework for testing AI investment readiness",
   description:
-    "Most AI investments do not fail because the technology is weak. They fail because the foundation underneath them was never tested before the capital was committed. Grounded is an open diagnostic for running that test.",
+    "Most AI investments do not fail because the technology is weak. They fail because the foundation underneath them was never tested before the capital was committed. Grounded is an open diagnostic for running that test — with the eight artifacts needed to run it, free and editable.",
 };
 
 function Section({
   n,
+  id,
   title,
   children,
 }: {
   n: string;
+  id?: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-rule py-14 sm:py-20 dark:border-rule-dk">
+    <section
+      id={id}
+      className="scroll-mt-8 border-t border-rule py-14 sm:py-20 dark:border-rule-dk"
+    >
       <p className="u-eyebrow">{n}</p>
       <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">{title}</h2>
       <div className="mt-6">{children}</div>
@@ -39,7 +46,7 @@ export default function GroundedPage() {
       {/* ---- Opening ------------------------------------------------------- */}
       <header className="pt-14 pb-14 sm:pt-20 sm:pb-20">
         <p className="u-eyebrow">
-          Concept Note · Version 1.0 · Published for comment
+          Concept Note v1.0 · Practice Toolkit v1.0 · Published for comment
         </p>
 
         <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">Grounded</h1>
@@ -62,6 +69,17 @@ export default function GroundedPage() {
             observable evidence questions, three gates that cannot be averaged away,
             answers collected privately by role, and an output that is a verdict with
             a priced register of gaps — not a score.
+          </p>
+          <p>
+            <strong>It is not only an argument.</strong> Everything needed to run an
+            assessment ships with it — the engagement letter, the private intake
+            forms, the scoring workbook that computes the verdict, the session
+            runsheet, the board one-pager. Eight artifacts, editable, free. If you
+            came to run an assessment rather than read about one, go straight to{" "}
+            <Link href="/grounded/toolkit" className="u-link">
+              the practice toolkit
+            </Link>
+            .
           </p>
         </div>
 
@@ -348,6 +366,32 @@ export default function GroundedPage() {
             actively misleading within months.
           </p>
         </div>
+      </Section>
+
+      {/* ---- 08 The toolkit ---------------------------------------------------- */}
+      <Section
+        n="08"
+        id="toolkit"
+        title="The toolkit — everything the method needs to run"
+      >
+        <div className="u-prose text-ink-body dark:text-ink-body-dk">
+          <p>
+            A framework that stops at the argument leaves the hard part — the
+            actual running of it — as an exercise for the reader, and quietly
+            becomes something you can only buy from its author. So everything is
+            here:{" "}
+            <strong>
+              eight artifacts, from the engagement letter to the board
+              one-pager.
+            </strong>{" "}
+            Six Word templates and two Excel workbooks. The scoring workbook is
+            the engine — transcribe the intake forms and the block scores,
+            gates, fault lines, verdict, debt register and expiry date compute
+            themselves.
+          </p>
+        </div>
+
+        <ToolkitTeaser />
       </Section>
 
       {/* ---- The download ------------------------------------------------------ */}

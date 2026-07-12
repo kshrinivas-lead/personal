@@ -5,6 +5,8 @@ import {
   COUNTER_KEY,
   COUNTER_NAMESPACE,
   GROUNDED_PDF,
+  TOOLKIT_COUNTER_KEY,
+  TOOLKIT_ZIP,
   WEB3FORMS_KEY,
 } from "@/config";
 
@@ -28,6 +30,29 @@ function countDownload() {
     `https://abacus.jasoncameron.dev/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`,
     { keepalive: true }
   ).catch(() => {});
+}
+
+/** Counted separately from the note. The interesting number is not how many
+ *  people read the argument — it is how many took the files, which is the only
+ *  signal that anyone intends to actually run an assessment. Also not rendered. */
+function countToolkit() {
+  fetch(
+    `https://abacus.jasoncameron.dev/hit/${COUNTER_NAMESPACE}/${TOOLKIT_COUNTER_KEY}`,
+    { keepalive: true }
+  ).catch(() => {});
+}
+
+function DownloadIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-4 w-4"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path d="M10 2a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L9 11.586V3a1 1 0 0 1 1-1ZM3 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1Z" />
+    </svg>
+  );
 }
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -75,38 +100,60 @@ export function DownloadGrounded() {
 
   return (
     <div className="rounded border border-rule bg-white/60 p-6 sm:p-8 dark:border-rule-dk dark:bg-paper-raised-dk">
-      <p className="u-eyebrow">Concept Note · Version 1.0 · Published for comment</p>
+      <p className="u-eyebrow">Version 1.0 · Published for comment</p>
 
-      <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-        Read the framework
-      </h2>
+      <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Take both</h2>
 
       <p className="u-measure mt-3 text-ink-body dark:text-ink-body-dk">
-        Fourteen pages. Every question, every scoring rule, the worked example, and
-        a section devoted entirely to where the framework is most exposed to
-        challenge. It is open, citable, and runnable by one person with a
-        spreadsheet.
+        The argument and the kit that runs it. Neither is gated — a framework
+        that claims to be open and then puts a form in front of its own
+        templates is not open.
       </p>
 
-      <a
-        href={GROUNDED_PDF}
-        download
-        onClick={countDownload}
-        className="u-sans mt-6 inline-flex items-center gap-2 rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
-      >
-        <svg
-          aria-hidden="true"
-          className="h-4 w-4"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M10 2a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L9 11.586V3a1 1 0 0 1 1-1ZM3 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1Z" />
-        </svg>
-        Download the concept note (PDF)
-      </a>
+      {/* Two doors, deliberately equal in weight. The note is not the product
+          and the toolkit is not an appendix — someone arriving to *run* an
+          assessment should not have to read fourteen pages to find the files. */}
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="flex flex-col rounded border border-rule bg-paper p-5 dark:border-rule-dk dark:bg-paper-dk">
+          <h3 className="text-lg font-semibold">The concept note</h3>
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-body dark:text-ink-body-dk">
+            Fourteen pages. Every question, every scoring rule, the worked
+            example, and a section devoted entirely to where the framework is
+            most exposed to challenge.
+          </p>
+          <a
+            href={GROUNDED_PDF}
+            download
+            onClick={countDownload}
+            className="u-sans mt-5 inline-flex items-center justify-center gap-2 rounded bg-ink px-4 py-2.5 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+          >
+            <DownloadIcon />
+            Concept note (PDF)
+          </a>
+        </div>
 
-      <p className="u-sans mt-2 text-xs text-ink-faint dark:text-ink-muted-dk">
-        No email required. No form in the way.
+        <div className="flex flex-col rounded border border-rule bg-paper p-5 dark:border-rule-dk dark:bg-paper-dk">
+          <h3 className="text-lg font-semibold">The practice toolkit</h3>
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-body dark:text-ink-body-dk">
+            All eight artifacts — six Word templates, two Excel workbooks. The
+            scoring engine computes the gates, the fault lines, the verdict and
+            the expiry on its own.
+          </p>
+          <a
+            href={TOOLKIT_ZIP}
+            download
+            onClick={countToolkit}
+            className="u-sans mt-5 inline-flex items-center justify-center gap-2 rounded bg-ink px-4 py-2.5 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+          >
+            <DownloadIcon />
+            All eight files (ZIP)
+          </a>
+        </div>
+      </div>
+
+      <p className="u-sans mt-3 text-xs text-ink-faint dark:text-ink-muted-dk">
+        No email required. No form in the way. Individual files are linked
+        against each artifact above.
       </p>
 
       {EMAIL_ENABLED && (
