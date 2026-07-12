@@ -9,6 +9,7 @@ import {
   TOOLKIT_ZIP,
   WEB3FORMS_KEY,
 } from "@/config";
+import { trackDownload } from "@/lib/analytics";
 
 /**
  * The download is ungated. Always. Section 11 of the note answers the
@@ -30,6 +31,13 @@ function countDownload() {
     `https://abacus.jasoncameron.dev/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`,
     { keepalive: true }
   ).catch(() => {});
+
+  trackDownload({
+    asset: "concept-note",
+    fileName: "grounded-concept-note-v1.pdf",
+    href: GROUNDED_PDF,
+    surface: "download-panel",
+  });
 }
 
 /** Counted separately from the note. The interesting number is not how many
@@ -40,6 +48,13 @@ function countToolkit() {
     `https://abacus.jasoncameron.dev/hit/${COUNTER_NAMESPACE}/${TOOLKIT_COUNTER_KEY}`,
     { keepalive: true }
   ).catch(() => {});
+
+  trackDownload({
+    asset: "toolkit-bundle",
+    fileName: "grounded-toolkit-v1.zip",
+    href: TOOLKIT_ZIP,
+    surface: "download-panel",
+  });
 }
 
 function DownloadIcon() {
@@ -93,6 +108,14 @@ export function DownloadGrounded() {
       });
       const result = await response.json();
       setStatus(result.success ? "sent" : "error");
+
+      // Only on genuine success — a failed POST that still reported a lead
+      // would quietly inflate the one number here that is supposed to mean
+      // someone actually reached me. No email address is ever pushed to the
+      // dataLayer: GTM is not a place to put personal data.
+      if (result.success && Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({ event: "generate_lead", form: "grounded-optional-email" });
+      }
     } catch {
       setStatus("error");
     }

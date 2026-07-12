@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { TOOLKIT, type Artifact } from "@/content/grounded";
 import { TOOLKIT_DIR } from "@/config";
+import { DownloadLink } from "./DownloadLink";
 
 /* ---------------------------------------------------------------------------
    The Practice Toolkit, drawn as the thing it actually is: a sequence.
@@ -96,9 +97,10 @@ function Row({ artifact }: { artifact: Artifact }) {
             {artifact.tip}
           </p>
 
-          <a
+          <DownloadLink
             href={href}
-            download
+            fileName={artifact.file}
+            asset={`${String(artifact.n).padStart(2, "0")}-${artifact.name}`}
             className="u-sans mt-6 inline-flex items-center gap-2 rounded border border-rule-strong px-4 py-2 text-xs font-semibold text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper dark:border-rule-dk dark:text-ink-dk dark:hover:border-ink-dk dark:hover:bg-ink-dk dark:hover:text-paper-dk"
           >
             <svg
@@ -110,7 +112,7 @@ function Row({ artifact }: { artifact: Artifact }) {
               <path d="M10 2a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L9 11.586V3a1 1 0 0 1 1-1ZM3 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1Z" />
             </svg>
             Download <span className="font-normal">{artifact.file}</span>
-          </a>
+          </DownloadLink>
         </div>
       </details>
     </li>
