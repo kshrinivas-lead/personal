@@ -275,6 +275,22 @@ export default function GroundedPage() {
             Nothing accusatory has happened — but the answer is now honest.
           </p>
         </div>
+
+        {/* The one mid-page door, placed here on purpose.
+            This is where the reader recognises their own organisation and
+            flinches — the point of peak conviction, and the only place in seven
+            sections of argument where an offer is a service rather than an
+            interruption. It is a line of text, not a button: the page is making
+            an argument, and an argument that keeps stopping to sell itself is
+            not one you should trust. */}
+        <p className="u-sans mt-8 border-l-2 border-rule-strong pl-4 text-sm text-ink-muted dark:border-rule-dk dark:text-ink-muted-dk">
+          The intake form that enforces this rule — a mandatory artifact field
+          against every Yes — is one of the eight artifacts in{" "}
+          <Link href="/grounded/toolkit" className="u-link">
+            the practice toolkit
+          </Link>
+          . You can take it without finishing this page.
+        </p>
       </Section>
 
       {/* ---- 05 The method --------------------------------------------------- */}
