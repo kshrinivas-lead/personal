@@ -5,8 +5,9 @@ import ThemeChanger from "./DarkSwitch";
 import { GROUNDED_PUBLISHED } from "@/config";
 
 const navigation = [
-  ...(GROUNDED_PUBLISHED ? [{ name: "Grounded", href: "/grounded" }] : []),
   { name: "Point of View", href: "/point-of-view" },
+  { name: "Governance", href: "/governance" },
+  ...(GROUNDED_PUBLISHED ? [{ name: "Grounded", href: "/grounded" }] : []),
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];

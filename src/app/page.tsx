@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Strata } from "@/components/grounded/Strata";
 import { GROUNDED_PUBLISHED } from "@/config";
 import { JsonLd, personJsonLd } from "@/components/JsonLd";
 
@@ -37,37 +36,65 @@ export default function Home() {
         </p>
       </section>
 
-      {/* ---- Grounded. Dark until launch day; flip one flag in config.ts. --- */}
-      {GROUNDED_PUBLISHED && (
-        <section className="border-t border-rule py-14 sm:py-20 dark:border-rule-dk">
-          <p className="u-eyebrow">Published · Concept Note v1.0</p>
+      {/* ---- Published work: two cards side by side ------------------------ */}
+      <section className="border-t border-rule py-14 sm:py-20 dark:border-rule-dk">
+        <p className="u-eyebrow">Published</p>
 
-          <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-            Grounded — a framework for testing whether an organisation is ready for
-            the AI investment in front of it
-          </h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          {GROUNDED_PUBLISHED && (
+            <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+              <p className="u-eyebrow">Concept Note v1.0</p>
 
-          <div className="u-prose mt-5 text-ink-body dark:text-ink-body-dk">
-            <p>
-              Most AI investments do not fail because the technology is weak. They
-              fail because the foundation underneath them was never tested before the
-              capital was committed. Grounded is an open diagnostic for running that
-              test — ten blocks, three gates that cannot be averaged away, and a
-              verdict rather than a score.
+              <h2 className="mt-3 text-xl font-semibold leading-snug">
+                Grounded — a framework for testing whether an organisation is
+                ready for the AI investment in front of it
+              </h2>
+
+              <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+                Most AI investments do not fail because the technology is weak.
+                They fail because the foundation underneath them was never
+                tested before the capital was committed. Grounded is an open
+                diagnostic for running that test — ten blocks, three gates that
+                cannot be averaged away, and a verdict rather than a score.
+              </p>
+
+              <Link
+                href="/grounded"
+                className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+              >
+                Read the framework
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </article>
+          )}
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Public Brief</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              The Operational Authority Layer — governing what AI systems do,
+              not just what they say
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              Guardrails govern content. Application rules govern individual
+              tools. Monitoring governs after the fact. None of them govern the
+              entity — where the consequence lives. This brief argues for a new
+              layer of the enterprise stack: one that defines what an AI system
+              is structurally permitted to do before an action commits, and
+              records every decision permanently.
             </p>
-          </div>
 
-          <Strata className="mt-10" />
-
-          <Link
-            href="/grounded"
-            className="u-sans mt-10 inline-flex items-center gap-2 rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
-          >
-            Read the framework
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </section>
-      )}
+            <Link
+              href="/governance"
+              className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+            >
+              Read the brief
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </article>
+        </div>
+      </section>
 
       {/* ---- Point of view ------------------------------------------------- */}
       <section className="border-t border-rule py-14 sm:py-20 dark:border-rule-dk">

@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "", priority: 1, changeFrequency: "monthly" as const },
     { path: "/point-of-view", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/governance", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.6, changeFrequency: "yearly" as const },
     { path: "/contact", priority: 0.4, changeFrequency: "yearly" as const },
     ...(GROUNDED_PUBLISHED

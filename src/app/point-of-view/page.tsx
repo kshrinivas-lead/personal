@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Point of view — Shrinivas Kulkarni",
@@ -13,7 +14,20 @@ const IDEAS = [
     title: "The governance gap is real, and under-discussed",
     body: [
       "Your company knows exactly who is allowed to approve a £2m payment. Delegated authority. Segregation of duties. A signature that means somebody's name is on it. It has no equivalent answer for the agent that just raised one.",
-      "What is called AI governance today is mostly monitoring and reporting — a careful account of what has already happened. Useful, but an audit log is not a control; it is a record of the moment the control was missing. The interesting question is what a system is structurally permitted to do before an action commits.",
+      <>
+        What is called AI{" "}
+        <Link
+          href="/governance"
+          className="underline decoration-rule-strong underline-offset-4 transition-colors hover:decoration-current dark:decoration-rule-dk"
+        >
+          governance
+        </Link>{" "}
+        today is mostly monitoring and reporting — a careful account of what
+        has already happened. Useful, but an audit log is not a control; it is
+        a record of the moment the control was missing. The interesting
+        question is what a system is structurally permitted to do before an
+        action commits.
+      </>,
     ],
     limit:
       "Knowing the gap exists does not tell you how wide to open the gate. That is a harder problem, and I do not think anyone has solved it well yet.",
@@ -76,8 +90,8 @@ export default function PointOfView() {
           </h2>
 
           <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
-            {idea.body.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+            {idea.body.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
             ))}
           </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { trackDownload } from "@/lib/analytics";
+import { trackDownload, type DownloadSurface } from "@/lib/analytics";
 
 /**
  * A single artifact download. Client-only for the sake of one onClick, so the
@@ -13,12 +13,14 @@ export function DownloadLink({
   href,
   fileName,
   asset,
+  surface = "artifact-row",
   className,
   children,
 }: {
   href: string;
   fileName: string;
   asset: string;
+  surface?: DownloadSurface;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -28,7 +30,7 @@ export function DownloadLink({
       download
       className={className}
       onClick={() =>
-        trackDownload({ asset, fileName, href, surface: "artifact-row" })
+        trackDownload({ asset, fileName, href, surface })
       }
     >
       {children}
