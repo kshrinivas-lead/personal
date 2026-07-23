@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DownloadLink } from "@/components/grounded/DownloadLink";
 
 const BRIEF_PDF = "/operational-authority-layer-public-brief-v1.pdf";
@@ -433,6 +434,15 @@ export default function Governance() {
           Download the brief (PDF)
           <span aria-hidden="true">&darr;</span>
         </DownloadLink>
+
+        <p className="u-measure mt-10 text-[0.95rem] text-ink-muted dark:text-ink-muted-dk">
+          In this series:{" "}
+          <Link href="/governance/autonomous-decision" className="u-link">
+            The physics of an autonomous decision
+          </Link>{" "}
+          — the argument in article form, with a five-question test to run on
+          your own AI estate.
+        </p>
       </section>
     </div>
   );
