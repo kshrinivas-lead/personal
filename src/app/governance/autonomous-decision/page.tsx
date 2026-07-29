@@ -115,10 +115,17 @@ const PROPERTIES = [
   },
   {
     n: "05",
-    name: "Permanent evidence",
-    body: "Every decision — permitted, held, or refused — produces an immutable record of what the system knew, what rules were in force, and who decided. Including what was prevented.",
+    name: "Permanent, independently verifiable evidence",
+    body: "Every decision — permitted, held, or refused — produces a record of what the system knew, what rules were in force, and who decided, that a third party can verify without taking the enterprise's word for it. A tamper-resistant log inside a system the same party controls is still a self-attested claim, not a verified one.",
     example:
-      "e.g. a regulator's question about last quarter is answered in minutes, not days of reconstruction",
+      "e.g. a regulator can confirm the record hasn't been altered independently of trusting the enterprise's own operational integrity",
+  },
+  {
+    n: "06",
+    name: "Durable authority, continuously reassessed",
+    body: "A permission granted once is not permission forever. Where an agent holds standing authority — a threshold, a recurring action, anything whose effects continue after the moment it was granted — the justification for that authority has to be reassessed on some cadence, not left standing until someone remembers to check it.",
+    example:
+      "e.g. an agent authorised to auto-approve claims under a threshold has that authority re-validated against current risk data, not just checked once at setup",
   },
 ];
 
@@ -142,6 +149,10 @@ const CHECKLIST = [
   {
     lead: "Check who owns the rules.",
     body: "Can the people accountable for a rule change it directly — or does every update require an engineering ticket?",
+  },
+  {
+    lead: "Pick one standing permission your AI holds.",
+    body: "When was it last re-validated against current data — or has it been running unchecked since the day it was granted?",
   },
 ];
 
@@ -243,17 +254,18 @@ export default function AutonomousDecision() {
         />
       </section>
 
-      {/* § 3 — Five properties */}
+      {/* § 3 — Six properties */}
       <section className="border-t border-rule py-12 sm:py-16 dark:border-rule-dk">
         <SectionHeading n="3" title="What an authority layer actually requires" />
 
         <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
           <p>
-            Five structural properties have to hold simultaneously. Partial
+            Six structural properties have to hold simultaneously. Partial
             combinations fail in specific, predictable ways — a guardrail
             without deterministic permission still lets the wrong action
             through; deterministic permission without evidence is
-            unenforceable in front of a regulator.
+            unenforceable in front of a regulator; and evidence or permission
+            without durability quietly expires while nobody&rsquo;s watching.
           </p>
         </div>
 
@@ -275,6 +287,29 @@ export default function AutonomousDecision() {
             </div>
           ))}
         </div>
+
+        <div className="u-prose u-measure mt-8 text-ink-body dark:text-ink-body-dk">
+          <p>
+            One honest caveat, stated plainly: these are the properties of a
+            technical substrate. They are necessary engineering conditions.
+            They are not, by themselves, sufficient to satisfy a regulator or
+            auditor. Frameworks like the EU AI Act and ISO/IEC 42001 also
+            require a documented risk assessment, a named accountable owner,
+            evidence of a conformity process, and proof that the humans in
+            the loop were competent for the role — not just present. An
+            organisation can build all six properties correctly and still
+            fail an audit, because the audit checks the organisational
+            apparatus around the control, not only whether the control itself
+            works.
+          </p>
+        </div>
+
+        <blockquote className="u-measure mt-8 border-l-2 border-rule-strong pl-5 dark:border-rule-dk">
+          <p className="text-lg italic leading-relaxed text-ink-body dark:text-ink-body-dk">
+            A structural gate is a necessary engineering condition. It is not,
+            by itself, a regulatory one.
+          </p>
+        </blockquote>
       </section>
 
       {/* § 4 — In practice */}
@@ -284,7 +319,7 @@ export default function AutonomousDecision() {
         <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
           <p>
             You don&rsquo;t need architecture diagrams to find out where you
-            stand. Five honest questions do most of the work.
+            stand. Six honest questions do most of the work.
           </p>
         </div>
 
@@ -309,6 +344,47 @@ export default function AutonomousDecision() {
             If more than one of these produces a shrug rather than an answer,
             the gap isn&rsquo;t in your AI. It&rsquo;s in the layer that was
             supposed to sit underneath it.
+          </p>
+        </div>
+      </section>
+
+      {/* Addendum */}
+      <section className="border-t border-rule py-12 sm:py-16 dark:border-rule-dk">
+        <p className="u-eyebrow">Addendum — August 2026</p>
+        <h2 className="mt-2 text-2xl font-semibold sm:text-[1.75rem]">
+          What changed after this was published
+        </h2>
+
+        <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
+          <p>
+            This article generated real pushback worth reflecting here rather
+            than editing away quietly. Several credentialed readers converged
+            independently on gaps the original version didn&rsquo;t cover.
+          </p>
+          <p>
+            The evidence property originally said &ldquo;immutable.&rdquo; The
+            correction, and it was a fair one: immutable inside a system the
+            enterprise itself controls is still a self-attested claim, not a
+            verified one. The property now specifies independently verifiable
+            evidence — the same discipline already applied everywhere else,
+            pointed at the evidence layer itself.
+          </p>
+          <p>
+            Two readers, independently, identified that nothing in the
+            original five properties addressed what happens to a standing
+            authorisation after it&rsquo;s granted, if the facts underneath it
+            change while it&rsquo;s still in effect. That&rsquo;s now its own
+            property — durable authority, continuously reassessed.
+          </p>
+          <p>
+            A third reader made a fair and important distinction: everything
+            above describes a technical substrate. It does not, on its own,
+            satisfy a regulator. That caveat is now stated plainly in the
+            text, rather than left implicit.
+          </p>
+          <p>
+            None of this weakens the argument. It&rsquo;s the argument holding
+            up to scrutiny, and getting more precise because of it.
           </p>
         </div>
       </section>
