@@ -37,14 +37,14 @@ export default function Home() {
       </section>
 
       {/* ---- Published work: full-width band, cards centred ----------------
-           Three cards no longer fit the reading measure, so this section
+           Four cards no longer fit the reading measure, so this section
            breaks out of the 3xl column: the band spans the page, the card
-           row is centred and capped at 6xl so all three sit on one line. */}
+           grid is centred and capped at 6xl, two cards per row. */}
       <section className="border-t border-rule py-14 sm:py-20 dark:border-rule-dk">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <p className="u-eyebrow">Published</p>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {GROUNDED_PUBLISHED && (
             <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
               <p className="u-eyebrow">Concept Note v1.0</p>
@@ -107,13 +107,37 @@ export default function Home() {
 
             <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
               Why governing what an AI system says is not the same as
-              governing what it does. The five structural properties an
-              authority layer requires, and a five-question test worth running
+              governing what it does. The six structural properties an
+              authority layer requires, and a six-question test worth running
               on your own AI estate — no architecture diagrams needed.
             </p>
 
             <Link
               href="/governance/autonomous-decision"
+              className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+            >
+              Read the article
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </article>
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Article</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              Decision Intelligence — why most organisations have data, not
+              decisions
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              Every organisation can produce a dashboard. Almost none can
+              produce the reasoning behind their last big call. The four
+              properties of a decision worth trusting, where AI genuinely
+              helps — and where it should stay out of the choosing.
+            </p>
+
+            <Link
+              href="/decision-intelligence"
               className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
             >
               Read the article
