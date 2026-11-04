@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CONTACT_EMAIL } from "@/config";
+import Link from "next/link";
+import { CONTACT_EMAIL, GROUNDED_PUBLISHED } from "@/config";
 
 export const metadata: Metadata = {
   title: "About — Shrinivas Kulkarni",
@@ -66,7 +67,14 @@ export default function About() {
           <li>Stanford LEAD. MBA (Strategy).</li>
           <li>
             Author of{" "}
-            <span className="italic">Grounded</span> — an open framework for testing
+            {GROUNDED_PUBLISHED ? (
+              <Link href="/grounded" className="u-link italic">
+                Grounded
+              </Link>
+            ) : (
+              <span className="italic">Grounded</span>
+            )}{" "}
+            — an open framework for testing
             AI investment readiness, published for comment.
           </li>
         </ul>
