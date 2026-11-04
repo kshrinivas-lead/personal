@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, GROUNDED_PUBLISHED } from "@/config";
+import { CONTACT_EMAIL } from "@/config";
 
 const links = [
-  ...(GROUNDED_PUBLISHED ? [{ name: "Grounded", href: "/grounded" }] : []),
   { name: "Point of View", href: "/point-of-view" },
+  { name: "Writing", href: "/writing" },
+  { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];

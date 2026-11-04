@@ -144,6 +144,28 @@ export default function Home() {
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </article>
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Field Notes</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              How a factory runs, on one page
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              An interactive map of the processes around a factory&rsquo;s shop
+              floor, with what is specific to Indian auto plants and how each
+              process connects to the others.
+            </p>
+
+            <Link
+              href="/work/field-notes/factory-process-map"
+              className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+            >
+              Open the map
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </article>
         </div>
         </div>
       </section>
