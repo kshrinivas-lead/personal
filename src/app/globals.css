@@ -93,6 +93,36 @@
 }
 
 @layer components {
+  /* Decision Intelligence diagrams (DecisionDiagrams.tsx) */
+  .dg-svg { display: block; width: 100%; min-width: 560px; height: auto; color: var(--color-ink); }
+  .dark .dg-svg { color: var(--color-ink-dk); }
+  .dg-box { fill: var(--color-paper-raised); stroke: var(--color-rule-strong); stroke-width: 1.2; }
+  .dg-box.ok { stroke: var(--color-pass); fill: var(--color-pass-bg); }
+  .dg-box.bad { stroke: var(--color-fail); fill: var(--color-fail-bg); }
+  .dg-box.warn { stroke: var(--color-partial); fill: var(--color-partial-bg); }
+  .dg-box.ghost { stroke-dasharray: 5 4; }
+  .dg-ln { stroke: var(--color-ink-muted); stroke-width: 1.4; fill: none; }
+  .dg-ln.bad { stroke: var(--color-fail); }
+  .dg-ln.ok { stroke: var(--color-pass); }
+  .dg-hd { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--color-ink-muted); }
+  .dg-tt { font-family: var(--font-serif); font-size: 16px; font-weight: 600; fill: var(--color-ink); }
+  .dg-sb { font-family: var(--font-sans); font-size: 12px; fill: var(--color-ink-body); }
+  .dg-nt { font-family: var(--font-sans); font-size: 12px; fill: var(--color-fail); }
+  .dg-nt.warn { fill: var(--color-partial); }
+  .dg-num { font-family: var(--font-sans); font-size: 12px; font-weight: 600; fill: var(--color-ink-muted); }
+  .dg-ah { fill: var(--color-ink-muted); } .dg-ah.bad { fill: var(--color-fail); } .dg-ah.ok { fill: var(--color-pass); }
+  .dark .dg-box { fill: var(--color-paper-raised-dk); stroke: #43433d; }
+  .dark .dg-box.ok { stroke: #7fbf9a; fill: var(--color-pass-bg-dk); }
+  .dark .dg-box.bad { stroke: #e08a84; fill: var(--color-fail-bg-dk); }
+  .dark .dg-box.warn { stroke: #d4b25a; fill: var(--color-partial-bg-dk); }
+  .dark .dg-ln { stroke: var(--color-ink-muted-dk); }
+  .dark .dg-ln.bad { stroke: #e08a84; } .dark .dg-ln.ok { stroke: #7fbf9a; }
+  .dark .dg-hd, .dark .dg-num { fill: var(--color-ink-muted-dk); }
+  .dark .dg-tt { fill: var(--color-ink-dk); }
+  .dark .dg-sb { fill: var(--color-ink-body-dk); }
+  .dark .dg-nt { fill: #e08a84; } .dark .dg-nt.warn { fill: #d4b25a; }
+  .dark .dg-ah { fill: var(--color-ink-muted-dk); } .dark .dg-ah.bad { fill: #e08a84; } .dark .dg-ah.ok { fill: #7fbf9a; }
+
   /* Structure — labels, nav, captions, eyebrows. Never argument. */
   .u-sans {
     font-family: var(--font-sans);

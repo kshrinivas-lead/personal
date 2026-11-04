@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  AiPosition,
+  GapDiagram,
+  LoopDiagram,
+  OutcomeGrid,
+} from "@/components/DecisionDiagrams";
 
 export const metadata: Metadata = {
   title: "Decision Intelligence — why most organisations have data, not decisions",
@@ -123,6 +129,8 @@ export default function DecisionIntelligence() {
             Intelligence is the name for building that missing half.
           </p>
         </div>
+
+        <GapDiagram />
       </section>
 
       {/* § 2 — Four properties */}
@@ -139,6 +147,8 @@ export default function DecisionIntelligence() {
           </p>
         </div>
 
+        <LoopDiagram />
+
         <div className="mt-8 divide-y divide-rule border-y border-rule dark:divide-rule-dk dark:border-rule-dk">
           {PROPERTIES.map((p) => (
             <div key={p.n} className="grid grid-cols-[3.5rem_1fr] gap-x-4 py-6">
@@ -154,6 +164,8 @@ export default function DecisionIntelligence() {
             </div>
           ))}
         </div>
+
+        <OutcomeGrid />
       </section>
 
       {/* § 3 — Where AI earns its place */}
@@ -187,6 +199,8 @@ export default function DecisionIntelligence() {
             machine.
           </p>
         </div>
+
+        <AiPosition />
 
         <blockquote className="u-measure mt-8 border-l-2 border-rule-strong pl-5 dark:border-rule-dk">
           <p className="text-lg italic leading-relaxed text-ink-body dark:text-ink-body-dk">
