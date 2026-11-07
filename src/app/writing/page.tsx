@@ -39,6 +39,18 @@ const SERIES = [
       },
     ],
   },
+  {
+    name: "Organisation design",
+    blurb:
+      "How work is arranged, who answers for it, and which reasons for the structure still hold.",
+    pieces: [
+      {
+        kind: "Article",
+        title: "Your org chart is a record of old reasons",
+        href: "/org-design",
+      },
+    ],
+  },
 ];
 
 export default function Writing() {

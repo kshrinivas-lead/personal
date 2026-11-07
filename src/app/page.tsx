@@ -146,6 +146,29 @@ export default function Home() {
           </article>
 
           <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Article</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              Your org chart is a record of old reasons
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              Every department boundary exists because something was once
+              hard. Why work crosses departments while accountability does not,
+              and what changes when you organise around functions and give each
+              one a single owner.
+            </p>
+
+            <Link
+              href="/org-design"
+              className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+            >
+              Read the article
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </article>
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
             <p className="u-eyebrow">Field Notes</p>
 
             <h2 className="mt-3 text-xl font-semibold leading-snug">
