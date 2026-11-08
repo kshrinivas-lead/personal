@@ -155,6 +155,72 @@ const HARD = [
   },
 ];
 
+const COSTS = [
+  {
+    name: "Two bosses by another name",
+    body: [
+      "An owner who answers for the order, sitting above department heads who answer for their steps, is a matrix, and matrices have a long record of friction. Because authority stays where it is, the risk is not that the idea fails on paper. It is that the owner role slowly becomes decorative: a title, a dashboard and no leverage.",
+    ],
+  },
+  {
+    name: "Trade-offs need someone to decide them",
+    body: [
+      "Quality wants a thorough release check. The order owner wants the shipment out on Friday. Today that conflict stays inside one department’s priorities, or travels up a single chain. With ownership across functions, the conflict becomes visible and constant. You need explicit rules about who decides what, and writing them is hard.",
+    ],
+  },
+  {
+    name: "Shared departments get pulled in several directions",
+    body: [
+      "Quality serves three functions, so three owners may each claim its capacity. Departments that were organised for their own efficiency are now asked to serve outcomes that others own.",
+    ],
+  },
+  {
+    name: "Incentives are the real restructuring",
+    body: [
+      "Budgets, targets and bonuses are set by department. If they stay that way, the new ownership is cosmetic, because people follow what they are measured on. Changing incentives is where the politics begins, and it is the hardest part of the whole exercise.",
+    ],
+  },
+  {
+    name: "The function view can become the new org chart",
+    body: [
+      "Deciding where one function ends and the next begins is a judgement call, and arguments over it become a new arena for turf. Left alone, the function view goes stale in the same way the old chart did, for the same reason: nobody asks whether it still holds.",
+    ],
+  },
+  {
+    name: "Owners can multiply",
+    body: [
+      "If every function gets a named owner, you end up with hundreds of them, and accountability thins out. Part of the discipline is choosing which functions deserve one.",
+    ],
+  },
+];
+
+const GIVE_UP = [
+  {
+    lead: "Simplicity.",
+    body: "One chart, one boss and one career ladder is easy to understand. This adds a second way of seeing the organisation, and people have to hold both.",
+  },
+  {
+    lead: "Speed inside a domain.",
+    body: "A clear functional hierarchy decides quickly, especially in a crisis. An ownership layer adds a conversation.",
+  },
+  {
+    lead: "The flexibility of shared pools.",
+    body: "Departments pool people and equipment efficiently. Dedicating them to functions can fragment that.",
+  },
+  {
+    lead: "The comfort of localised blame.",
+    body: "“That is not my department” protects individuals. It also protects the problem. Losing it is a gain for the company and a real loss for people who relied on it.",
+  },
+  {
+    lead: "Clear promotion paths.",
+    body: "Careers are built inside departments. It is not obvious where an owner role sits on a ladder, and people notice.",
+  },
+  {
+    lead: "Attention and goodwill.",
+    body: "Any redesign spends both, and the first attempt costs the most.",
+  },
+];
+
 function Bullets({
   items,
 }: {
@@ -191,8 +257,8 @@ export default function OrgDesign() {
           Your org chart is a record of old reasons
         </h1>
         <p className="u-measure mt-5 text-lg italic text-ink-body dark:text-ink-body-dk">
-          Why enterprises need to rethink how work is arranged, and what the
-          alternative looks like.
+          Why enterprises need to rethink how work is arranged, what the
+          alternative looks like, and what it costs.
         </p>
       </header>
 
@@ -350,9 +416,59 @@ export default function OrgDesign() {
         </div>
       </section>
 
+      {/* What it costs */}
+      <section className="border-t border-rule py-12 sm:py-16 dark:border-rule-dk">
+        <SectionHeading n="5" title="What it costs" />
+
+        <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
+          <p>
+            An honest case for a new way of working has to say what it costs.
+            This one has real costs, and some of them are the kind that quietly
+            defeat it.
+          </p>
+        </div>
+
+        <div className="mt-8 divide-y divide-rule border-y border-rule dark:divide-rule-dk dark:border-rule-dk">
+          {COSTS.map((c) => (
+            <div key={c.name} className="py-6">
+              <h3 className="text-lg font-semibold">{c.name}</h3>
+              <div className="mt-2 space-y-3 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+                {c.body.map((t) => (
+                  <p key={t}>{t}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="mt-12 text-lg font-semibold">What you give up</h3>
+        <Bullets items={GIVE_UP} />
+
+        <h3 className="mt-12 text-lg font-semibold">What you do not give up</h3>
+        <div className="u-prose u-measure mt-3 text-ink-body dark:text-ink-body-dk">
+          <p>
+            Reporting lines, department heads and professional standards all
+            stay. Departments remain the home of expertise. That is the main
+            reason to begin with ownership rather than with restructuring: it
+            is a cheap way to find out whether the new view is worth its cost.
+          </p>
+        </div>
+
+        <h3 className="mt-12 text-lg font-semibold">When it is not worth it</h3>
+        <div className="u-prose u-measure mt-3 text-ink-body dark:text-ink-body-dk">
+          <p>
+            If most of your work stays inside one department, if you are small
+            enough that everyone already knows who owns what, or if your
+            processes rarely change, the cost outweighs the benefit. This pays
+            off where work crosses many departments and where outcomes keep
+            slipping through the gaps between them.
+          </p>
+        </div>
+      </section>
+
       {/* The question worth asking */}
       <section className="border-t border-rule py-12 sm:py-16 dark:border-rule-dk">
-        <SectionHeading n="5" title="The question worth asking" />
+        <SectionHeading n="6" title="The question worth asking" />
 
         <div className="u-prose u-measure mt-5 text-ink-body dark:text-ink-body-dk">
           <p>
