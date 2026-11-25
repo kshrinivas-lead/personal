@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { GROUNDED_PUBLISHED } from "@/config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/work",
   title: "Work — Shrinivas Kulkarni",
   description:
     "The Grounded diagnostic and toolkit, and field notes from understanding how industries actually run.",
-  alternates: { canonical: "/work" },
-};
+  type: "website",
+});
 
 export default function Work() {
   return (

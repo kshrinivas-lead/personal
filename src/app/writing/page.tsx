@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/writing",
   title: "Writing — Shrinivas Kulkarni",
   description:
     "Essays and briefs on how organisations reason, decide, and govern the consequences of both, grouped by series.",
-  alternates: { canonical: "/writing" },
-};
+  type: "website",
+});
 
 const SERIES = [
   {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { DownloadLink } from "@/components/grounded/DownloadLink";
 
@@ -6,12 +7,12 @@ const BRIEF_PDF = "/operational-authority-layer-public-brief-v1.pdf";
 const BRIEF_FILE = "operational-authority-layer-public-brief-v1.pdf";
 const BRIEF_ASSET = "authority-layer-public-brief";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/governance",
   title: "Governance — The Operational Authority Layer",
   description:
     "Why governing what AI systems say is not the same as governing what they do — and why the answer is a new layer of the enterprise stack, not a feature of any existing one.",
-  alternates: { canonical: "/governance" },
-};
+});
 
 /* The public brief of the Operational Authority Layer white paper,
    published as a page. A companion architectural paper exists under

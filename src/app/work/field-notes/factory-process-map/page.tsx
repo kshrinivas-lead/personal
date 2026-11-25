@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { MapFrame } from "@/components/MapFrame";
 
 const MAP_SRC = "/field-notes/factory-process-map.html";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/work/field-notes/factory-process-map",
   title: "How a factory runs, on one page — Field Notes",
   description:
     "An interactive map of the ten processes around a factory's shop floor, with what is specific to Indian auto plants and how each process connects to the others.",
-  alternates: { canonical: "/work/field-notes/factory-process-map" },
-};
+});
 
 export default function FactoryProcessMap() {
   return (

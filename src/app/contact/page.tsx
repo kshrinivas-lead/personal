@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CONTACT_EMAIL } from "@/config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/contact",
   title: "Contact — Shrinivas Kulkarni",
-  description: "An email address.",
-  alternates: { canonical: "/contact" },
-};
+  description:
+    "An email address.",
+  type: "website",
+});
 
 export default function Contact() {
   return (

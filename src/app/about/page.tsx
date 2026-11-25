@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { CONTACT_EMAIL, GROUNDED_PUBLISHED } from "@/config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/about",
   title: "About — Shrinivas Kulkarni",
   description:
     "Twenty-six years in enterprise technology: engineering, architecture, enterprise AI leadership, and the governance question.",
-  alternates: { canonical: "/about" },
-};
+  type: "website",
+});
 
 const TRAJECTORY = [
   {

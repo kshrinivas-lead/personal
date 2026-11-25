@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import {
   AiPosition,
@@ -7,12 +8,12 @@ import {
   OutcomeGrid,
 } from "@/components/DecisionDiagrams";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/decision-intelligence",
   title: "Decision Intelligence — why most organisations have data, not decisions",
   description:
     "Every organisation can produce a dashboard. Almost none can produce the reasoning behind their last big call. Decision Intelligence is the discipline of closing that gap — and where AI actually helps.",
-  alternates: { canonical: "/decision-intelligence" },
-};
+});
 
 function SectionHeading({ n, title }: { n: string; title: string }) {
   return (

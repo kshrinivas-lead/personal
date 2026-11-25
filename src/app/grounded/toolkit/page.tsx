@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Toolkit } from "@/components/grounded/Toolkit";
 import { DownloadGrounded } from "@/components/grounded/DownloadGrounded";
@@ -9,24 +10,12 @@ const TITLE = "The Grounded Practice Toolkit — eight artifacts, free and edita
 const DESCRIPTION =
   "Everything a facilitator needs to run a Grounded Assessment — from the engagement letter to the board one-pager. Six Word templates, two Excel workbooks. Open, editable, ungated.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/grounded/toolkit",
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/grounded/toolkit" },
-  openGraph: {
-    type: "article",
-    url: "/grounded/toolkit",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [{ url: "/og/og-toolkit.png", width: 1200, height: 630, alt: TITLE }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: ["/og/og-toolkit.png"],
-  },
-};
+  image: "/og/og-toolkit.png",
+});
 
 /**
  * The toolkit gets its own page for two reasons.

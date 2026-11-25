@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { DownloadLink } from "@/components/grounded/DownloadLink";
 import {
@@ -7,12 +8,13 @@ import {
   TensionChart,
 } from "@/components/TensionDiagrams";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/structural-tension",
   title: "Structural Tension Framework for Today's Organizations",
   description:
     "Robert Fritz's ideas turned into a set of questions a leadership team can work through, adapted for how organizations and workforces operate today. With a companion workbook.",
-  alternates: { canonical: "/structural-tension" },
-};
+  image: "/og/og-structural-tension.png",
+});
 
 const WORKBOOK_HREF = "/writing/Structural-Tension-Workbook.xlsx";
 const WORKBOOK_FILE = "Structural-Tension-Workbook.xlsx";

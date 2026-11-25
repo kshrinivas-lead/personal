@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import {
   FunctionTree,
@@ -7,12 +8,12 @@ import {
   StepsNotOrder,
 } from "@/components/OrgDiagrams";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/org-design",
   title: "Your org chart is a record of old reasons",
   description:
     "Why enterprises need to rethink how work is arranged, and what the alternative looks like: organise around functions, give every function one accountable owner, and treat who performs the work as a detail.",
-  alternates: { canonical: "/org-design" },
-};
+});
 
 function SectionHeading({ n, title }: { n: string; title: string }) {
   return (

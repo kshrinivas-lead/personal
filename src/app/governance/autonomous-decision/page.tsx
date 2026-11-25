@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/governance/autonomous-decision",
   title: "The physics of an autonomous decision",
   description:
     "Why governing what an AI system says is not the same as governing what it does — and what it actually takes to close that gap.",
-  alternates: { canonical: "/governance/autonomous-decision" },
-};
+});
 
 /* The article's diagrams, re-palettes of the source SVGs onto the site's
    light (paper) tokens. The panel stays paper-white in both site themes —

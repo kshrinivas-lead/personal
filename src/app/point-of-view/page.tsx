@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/point-of-view",
   title: "Point of view — Shrinivas Kulkarni",
   description:
     "Four ideas about enterprise AI: the governance gap, why reliability cannot come from the model, why the bottleneck is never the technology, and what happens to judgement that stops accumulating.",
-  alternates: { canonical: "/point-of-view" },
-};
+  type: "website",
+});
 
 const IDEAS = [
   {
