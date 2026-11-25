@@ -104,6 +104,8 @@
   .dg-ln { stroke: var(--color-ink-muted); stroke-width: 1.4; fill: none; }
   .dg-ln.bad { stroke: var(--color-fail); }
   .dg-ln.ok { stroke: var(--color-pass); }
+  .dg-ln.warn { stroke: var(--color-partial); }
+  .dg-ln.dash { stroke-dasharray: 5 4; }
   .dg-hd { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--color-ink-muted); }
   .dg-tt { font-family: var(--font-serif); font-size: 16px; font-weight: 600; fill: var(--color-ink); }
   .dg-sb { font-family: var(--font-sans); font-size: 12px; fill: var(--color-ink-body); }
@@ -116,7 +118,7 @@
   .dark .dg-box.bad { stroke: #e08a84; fill: var(--color-fail-bg-dk); }
   .dark .dg-box.warn { stroke: #d4b25a; fill: var(--color-partial-bg-dk); }
   .dark .dg-ln { stroke: var(--color-ink-muted-dk); }
-  .dark .dg-ln.bad { stroke: #e08a84; } .dark .dg-ln.ok { stroke: #7fbf9a; }
+  .dark .dg-ln.bad { stroke: #e08a84; } .dark .dg-ln.ok { stroke: #7fbf9a; } .dark .dg-ln.warn { stroke: #d4b25a; }
   .dark .dg-hd, .dark .dg-num { fill: var(--color-ink-muted-dk); }
   .dark .dg-tt { fill: var(--color-ink-dk); }
   .dark .dg-sb { fill: var(--color-ink-body-dk); }

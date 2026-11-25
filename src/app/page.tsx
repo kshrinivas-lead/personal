@@ -169,6 +169,29 @@ export default function Home() {
           </article>
 
           <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Article + workbook</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              Structural Tension Framework for Today&rsquo;s Organizations
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              Robert Fritz&rsquo;s ideas as five stages of questions a
+              leadership team can work through: vision, current reality,
+              structure, people and action, adapted for today&rsquo;s
+              organizations, with a workbook to fill in.
+            </p>
+
+            <Link
+              href="/structural-tension"
+              className="u-sans mt-auto inline-flex items-center gap-2 self-start rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+            >
+              Read the article
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </article>
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
             <p className="u-eyebrow">Field Notes</p>
 
             <h2 className="mt-3 text-xl font-semibold leading-snug">

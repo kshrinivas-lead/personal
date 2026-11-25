@@ -49,6 +49,11 @@ const SERIES = [
         title: "Your org chart is a record of old reasons",
         href: "/org-design",
       },
+      {
+        kind: "Article + workbook",
+        title: "Structural Tension Framework for Today’s Organizations",
+        href: "/structural-tension",
+      },
     ],
   },
 ];

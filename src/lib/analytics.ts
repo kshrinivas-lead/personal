@@ -26,7 +26,8 @@ declare global {
 export type DownloadSurface =
   | "download-panel" // the two-door "Take both" block
   | "artifact-row" // an individual artifact in the toolkit timeline
-  | "governance-page"; // the white-paper brief on /governance
+  | "governance-page" // the white-paper brief on /governance
+  | "article-page"; // a companion file offered inside an article
 
 export function trackDownload({
   asset,

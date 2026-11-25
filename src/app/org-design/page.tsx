@@ -502,6 +502,10 @@ export default function OrgDesign() {
             How a factory runs, on one page
           </Link>{" "}
           &middot;{" "}
+          <Link href="/structural-tension" className="u-link">
+            Structural Tension Framework
+          </Link>{" "}
+          &middot;{" "}
           <Link href="/decision-intelligence" className="u-link">
             Decision Intelligence
           </Link>
