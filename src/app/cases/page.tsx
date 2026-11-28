@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/cases",
   title: "Cases — Shrinivas Kulkarni",
   description: `${SERIES_NAME}. ${SERIES_BLURB}`,
+  image: "/og/og-cases.png",
   type: "website",
 });
 

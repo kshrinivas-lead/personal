@@ -3,7 +3,8 @@
  *
  * The /cases index, the Writing page, the home page card and the sitemap all
  * read from here, so adding a case means: write its page under
- * src/app/cases/<slug>/page.tsx, then add one entry below.
+ * src/app/cases/<slug>/page.tsx, make its 1200×630 social card in
+ * public/og, then add one entry below.
  *
  * `updated` changes whenever a dated update is added to a developing case.
  */
@@ -18,6 +19,8 @@ export type Case = {
   updated: string;
   /** "developing" while investigations or events are still open. */
   status: "developing" | "closed";
+  /** 1200×630 social card under /public/og. Shown when the link is shared. */
+  ogImage: string;
 };
 
 export const SERIES_NAME = "Leadership, boards and accountability";
@@ -34,6 +37,7 @@ export const CASES: Case[] = [
     published: "2026-11-28",
     updated: "2026-11-28",
     status: "developing",
+    ogImage: "/og/og-case-nvidia.png",
   },
 ];
 

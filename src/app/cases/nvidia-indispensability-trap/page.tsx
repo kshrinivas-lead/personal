@@ -27,6 +27,7 @@ export const metadata: Metadata = pageMetadata({
   path: PATH,
   title: CASE.title,
   description: CASE.hook,
+  image: CASE.ogImage,
 });
 
 const SRC = {
