@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_DESCRIPTION, SITE_TITLE, pageMetadata } from "@/lib/metadata";
 import { GROUNDED_PUBLISHED } from "@/config";
 import { CASES, casePath } from "@/content/cases";
 import { JsonLd, personJsonLd } from "@/components/JsonLd";
+
+/* The home page names its own address; the layout deliberately does not
+   (see layout.tsx). */
+export const metadata: Metadata = pageMetadata({
+  path: "/",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  type: "website",
+});
 
 export default function Home() {
   return (

@@ -3,6 +3,11 @@ import { SITE_NAME } from "@/config";
 
 export const DEFAULT_OG_IMAGE = "/og/og-default.png";
 
+export const SITE_TITLE =
+  "Shrinivas Kulkarni — Enterprise AI, Governance, Transformation";
+export const SITE_DESCRIPTION =
+  "Twenty-six years in enterprise technology, spent on one question: when AI starts taking real actions inside a business, who decided it was allowed to?";
+
 /**
  * Per-page metadata, including the social-sharing tags.
  *

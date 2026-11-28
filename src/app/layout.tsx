@@ -6,6 +6,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GTM_ID, SITE_NAME, SITE_URL } from "@/config";
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/metadata";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -19,9 +20,8 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const TITLE = "Shrinivas Kulkarni — Enterprise AI, Governance, Transformation";
-const DESCRIPTION =
-  "Twenty-six years in enterprise technology, spent on one question: when AI starts taking real actions inside a business, who decided it was allowed to?";
+const TITLE = SITE_TITLE;
+const DESCRIPTION = SITE_DESCRIPTION;
 
 export const metadata: Metadata = {
   /* Everything relative — canonicals, OG images — resolves against this. */
@@ -31,21 +31,25 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
-  alternates: { canonical: "/" },
+  /* No canonical and no og:url here. Whatever the layout sets, every page
+     without its own metadata inherits, and that includes the 404 page. When
+     LinkedIn scraped a new URL before it was deployed, it got the 404 page,
+     read og:url = home, and filed the new URL as the home page for good.
+     The home page declares its own address (page.tsx); every other page
+     does so through pageMetadata(). */
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: SITE_URL,
     siteName: SITE_NAME,
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: "/og/og-default.png", width: 1200, height: 630, alt: TITLE }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/og/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
