@@ -6,6 +6,7 @@ import ThemeChanger from "./DarkSwitch";
 const navigation = [
   { name: "Point of View", href: "/point-of-view" },
   { name: "Writing", href: "/writing" },
+  { name: "Cases", href: "/cases" },
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },

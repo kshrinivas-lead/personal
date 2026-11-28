@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { GROUNDED_PUBLISHED } from "@/config";
+import { CASES, casePath } from "@/content/cases";
 import { JsonLd, personJsonLd } from "@/components/JsonLd";
 
 export default function Home() {
@@ -71,6 +72,31 @@ export default function Home() {
               </Link>
             </article>
           )}
+
+          <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
+            <p className="u-eyebrow">Case · Leadership, boards and accountability</p>
+
+            <h2 className="mt-3 text-xl font-semibold leading-snug">
+              {CASES[0].title}
+            </h2>
+
+            <p className="mt-4 mb-7 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
+              {CASES[0].hook}
+            </p>
+
+            <div className="u-sans mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
+              <Link
+                href={casePath(CASES[0].slug)}
+                className="inline-flex items-center gap-2 rounded bg-ink px-5 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90 dark:bg-ink-dk dark:text-paper-dk"
+              >
+                Read the case
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+              <Link href="/cases" className="u-link text-sm">
+                All cases
+              </Link>
+            </div>
+          </article>
 
           <article className="flex flex-col rounded-lg border border-rule p-6 sm:p-7 dark:border-rule-dk">
             <p className="u-eyebrow">Public Brief</p>

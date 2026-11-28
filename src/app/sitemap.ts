@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { GROUNDED_PUBLISHED, SITE_URL } from "@/config";
+import { CASES, casePath } from "@/content/cases";
 
 /* Required under `output: export` — see robots.ts. */
 export const dynamic = "force-static";
@@ -45,6 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       changeFrequency: "monthly" as const,
     },
+    { path: "/cases", priority: 0.7, changeFrequency: "weekly" as const },
+    ...CASES.map((c) => ({
+      path: casePath(c.slug),
+      priority: 0.7,
+      changeFrequency:
+        c.status === "developing" ? ("weekly" as const) : ("yearly" as const),
+    })),
     { path: "/about", priority: 0.6, changeFrequency: "yearly" as const },
     { path: "/contact", priority: 0.4, changeFrequency: "yearly" as const },
     ...(GROUNDED_PUBLISHED

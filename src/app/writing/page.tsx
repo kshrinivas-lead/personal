@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
+import { CASES, SERIES_NAME, casePath } from "@/content/cases";
 
 export const metadata: Metadata = pageMetadata({
   path: "/writing",
@@ -10,7 +11,14 @@ export const metadata: Metadata = pageMetadata({
   type: "website",
 });
 
-const SERIES = [
+type Series = {
+  name: string;
+  blurb: string;
+  pieces: { kind: string; title: string; href: string }[];
+  more?: { label: string; href: string };
+};
+
+const SERIES: Series[] = [
   {
     name: "Governance",
     blurb:
@@ -58,6 +66,17 @@ const SERIES = [
       },
     ],
   },
+  {
+    name: SERIES_NAME,
+    blurb:
+      "Case studies of real board and leadership decisions: the case told neutrally, then my argument, then lessons and questions.",
+    pieces: CASES.map((c) => ({
+      kind: "Case",
+      title: c.title,
+      href: casePath(c.slug),
+    })),
+    more: { label: "All cases", href: "/cases" },
+  },
 ];
 
 export default function Writing() {
@@ -94,6 +113,14 @@ export default function Writing() {
               </li>
             ))}
           </ul>
+          {s.more && (
+            <Link
+              href={s.more.href}
+              className="u-link u-sans mt-6 inline-block text-sm font-semibold"
+            >
+              {s.more.label} &rarr;
+            </Link>
+          )}
         </section>
       ))}
     </div>
