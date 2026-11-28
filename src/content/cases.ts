@@ -30,6 +30,16 @@ export const SERIES_BLURB =
 
 export const CASES: Case[] = [
   {
+    slug: "flipkart-ceo-owns-pnl-and-culture",
+    title: "A CEO Owns P&L and Culture",
+    company: "Flipkart",
+    hook: "Real constraints are not a defence. What Kalyan Krishnamurthy’s exit from Flipkart teaches about accountability for causes that seem external.",
+    published: "2026-11-28",
+    updated: "2026-11-28",
+    status: "developing",
+    ogImage: "/og/og-case-flipkart.png",
+  },
+  {
     slug: "nvidia-indispensability-trap",
     title: "The Indispensability Trap: Nvidia’s 26 Days",
     company: "Nvidia",

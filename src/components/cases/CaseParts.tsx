@@ -151,19 +151,27 @@ export const dpId = (n: number) => `decision-${n}`;
 
 export function DecisionPoint({
   n,
+  label = "Decision point",
   date,
   situation,
   options,
+  optionsLabel = "Your options",
   question,
   outcome,
+  outcomeLabel = "What the board did",
 }: {
   n: number;
-  date: string;
-  situation: ReactNode;
+  /** What the case calls its stops: "Decision point", "Pause". */
+  label?: string;
+  date?: string;
+  situation?: ReactNode;
   options?: { key: string; text: ReactNode }[];
-  question: ReactNode;
-  /** "What the board did" — held back until the reader opens it. */
-  outcome: ReactNode;
+  optionsLabel?: string;
+  question?: ReactNode;
+  /** What actually happened — held back until the reader opens it. Omit
+   *  when the public record does not say. */
+  outcome?: ReactNode;
+  outcomeLabel?: string;
 }) {
   return (
     <div
@@ -172,16 +180,19 @@ export function DecisionPoint({
     >
       <div className="px-5 pt-5 pb-6 sm:px-7">
         <p className="u-eyebrow flex items-center gap-2">
-          <span aria-hidden="true">⏸</span> Decision point {n} · {date}
+          <span aria-hidden="true">⏸</span> {label} {n}
+          {date && <> · {date}</>}
         </p>
-        <div className="mt-3 text-[1.02rem] text-ink-body dark:text-ink-body-dk">
-          {situation}
-        </div>
+        {situation && (
+          <div className="mt-3 text-[1.02rem] text-ink-body dark:text-ink-body-dk">
+            {situation}
+          </div>
+        )}
 
         {options && (
           <div className="mt-5">
             <p className="u-sans text-sm font-semibold text-ink dark:text-ink-dk">
-              Your options{n === 1 ? " as a director" : ""}
+              {optionsLabel}
             </p>
             <ul className="mt-2 space-y-1.5 text-[0.95rem] text-ink-body dark:text-ink-body-dk">
               {options.map((o) => (
@@ -196,16 +207,23 @@ export function DecisionPoint({
           </div>
         )}
 
-        <p className="mt-5 text-[0.95rem] italic text-ink dark:text-ink-dk">
-          {question}
-        </p>
+        {question && (
+          <p
+            className={`${situation ? "mt-5" : "mt-3"} text-[0.95rem] italic text-ink dark:text-ink-dk`}
+          >
+            {question}
+          </p>
+        )}
       </div>
 
+      {outcome && (
       <details className="group border-t border-rule dark:border-rule-dk">
         <summary className="u-sans flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink select-none sm:px-7 dark:text-ink-dk [&::-webkit-details-marker]:hidden">
           <span>
-            <span className="group-open:hidden">Decide first, then see what the board did</span>
-            <span className="hidden group-open:inline">What the board did</span>
+            <span className="group-open:hidden">
+              Decide first, then see {outcomeLabel.charAt(0).toLowerCase() + outcomeLabel.slice(1)}
+            </span>
+            <span className="hidden group-open:inline">{outcomeLabel}</span>
           </span>
           <span
             aria-hidden="true"
@@ -218,6 +236,7 @@ export function DecisionPoint({
           {outcome}
         </div>
       </details>
+      )}
     </div>
   );
 }
@@ -309,12 +328,19 @@ export function ExhibitTable({
 export function Timeline({
   rows,
 }: {
-  rows: { date: string; event: ReactNode; decision?: number }[];
+  rows: {
+    date: string;
+    event: ReactNode;
+    decision?: number;
+    /** Whether the event is on the record or only reported. */
+    status?: "Confirmed" | "Reported";
+    source?: ReactNode;
+  }[];
 }) {
   return (
     <ol className="u-sans border-l border-rule-strong dark:border-rule-dk">
-      {rows.map((r) => (
-        <li key={r.date} className="relative pb-5 pl-6 last:pb-0">
+      {rows.map((r, i) => (
+        <li key={i} className="relative pb-5 pl-6 last:pb-0">
           <span
             aria-hidden="true"
             className={`absolute top-[0.45rem] -left-[5px] h-[9px] w-[9px] rounded-full ${
@@ -335,6 +361,20 @@ export function Timeline({
             )}
           </p>
           <p className="mt-1 text-[0.92rem] text-ink-body dark:text-ink-body-dk">{r.event}</p>
+          {(r.status || r.source) && (
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-ink-muted dark:text-ink-muted-dk">
+              {r.status && (
+                <span
+                  className={`u-chip ${
+                    r.status === "Confirmed" ? "u-chip-pass" : "u-chip-partial"
+                  }`}
+                >
+                  {r.status}
+                </span>
+              )}
+              {r.source}
+            </p>
+          )}
         </li>
       ))}
     </ol>
@@ -375,9 +415,19 @@ export function QuestionList({ items }: { items: ReactNode[] }) {
 
 /* ---- Sources ------------------------------------------------------------ */
 
-export function Sources({ items }: { items: { label: string; href: string }[] }) {
+export function Sources({
+  items,
+  heading,
+}: {
+  items: { label: string; href: string }[];
+  heading?: string;
+}) {
   return (
-    <ul className="u-sans mt-4 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+    <>
+    {heading && (
+      <p className="u-sans mt-6 text-sm font-semibold text-ink dark:text-ink-dk">{heading}</p>
+    )}
+    <ul className="u-sans mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
       {items.map((s) => (
         <li key={s.href}>
           <a href={s.href} className="u-link" target="_blank" rel="noopener noreferrer">
@@ -386,6 +436,7 @@ export function Sources({ items }: { items: { label: string; href: string }[] })
         </li>
       ))}
     </ul>
+    </>
   );
 }
 

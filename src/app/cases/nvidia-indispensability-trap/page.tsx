@@ -177,6 +177,7 @@ export default function NvidiaCase() {
         <DecisionPoint
           n={1}
           date="8 November"
+          optionsLabel="Your options as a director"
           situation={
             <p>
               Huang tells employees he was unfaithful to his wife. The reports
@@ -581,13 +582,9 @@ export default function NvidiaCase() {
           <Link href="/cases" className="u-link">
             All cases
           </Link>{" "}
-          &middot; Related:{" "}
-          <Link href="/decision-intelligence" className="u-link">
-            Decision Intelligence
-          </Link>{" "}
-          &middot;{" "}
-          <Link href="/org-design" className="u-link">
-            Your org chart is a record of old reasons
+          &middot; Also in this series:{" "}
+          <Link href="/cases/flipkart-ceo-owns-pnl-and-culture" className="u-link">
+            A CEO Owns P&amp;L and Culture: Flipkart
           </Link>
         </p>
       </footer>
